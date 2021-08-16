@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreatemapActivity"></activity>
+        <activity android:name=".SetuppageActivity"></activity>
     </application>
 
 </manifest>
