@@ -4,6 +4,35 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Back"
+        android:layout_margin="10dp">
+    </Button>
+
+    <TextView
+        android:id="@+id/tv_settings_bgm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Background Music"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_settings_se">
+    </TextView>
+    <com.google.android.material.slider.Slider
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_settings_bgm"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="10dp">
+
+    </com.google.android.material.slider.Slider>
     <TextView
         android:id="@+id/tv_settings_se"
         android:layout_width="wrap_content"
@@ -15,17 +44,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
     </TextView>
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.slider.Slider
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Background Music"
-        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_settings_se"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_settings_se">
-    </TextView>
+        android:layout_margin="10dp">
+
+    </com.google.android.material.slider.Slider>
     <TextView
+        android:id="@+id/tv_settings_msv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Master Volume"
@@ -35,5 +64,14 @@
         app:layout_constraintTop_toBottomOf="@id/tv_settings_se"
         app:layout_constraintBottom_toBottomOf="parent">
     </TextView>
+    <com.google.android.material.slider.Slider
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_settings_msv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="10dp">
+
+    </com.google.android.material.slider.Slider>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
