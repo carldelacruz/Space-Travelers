@@ -12,12 +12,12 @@
         android:textSize="50dp"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/gl_map"
+        app:layout_constraintBottom_toTopOf="@id/gl_createmap_map"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
     <GridLayout
-        android:id="@+id/gl_map"
+        android:id="@+id/gl_createmap_map"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="5"
@@ -181,23 +181,23 @@
     </GridLayout>
 
     <Button
-        android:id="@+id/btn_savemap"
+        android:id="@+id/btn_createmap_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
         android:layout_gravity="left"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gl_map"
+        app:layout_constraintTop_toBottomOf="@id/gl_createmap_map"
         android:layout_margin="20dp"/>
 
     <Button
-        android:id="@+id/btn_quitmap"
+        android:id="@+id/btn_createmap_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
         android:layout_gravity="right"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gl_map"
+        app:layout_constraintTop_toBottomOf="@id/gl_createmap_map"
         android:layout_margin="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

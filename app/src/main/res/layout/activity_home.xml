@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".HomeActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -32,6 +32,7 @@
             android:layout_marginTop="20dp">
 
             <Button
+                android:id="@+id/btn_home_play"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:text="Play">
@@ -39,18 +40,21 @@
 
 
             <Button
+                android:id="@+id/btn_home_createmap"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:text="Create Map">
             </Button>
 
             <Button
+                android:id="@+id/btn_home_settings"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:text="Settings">
             </Button>
 
             <Button
+                android:id="@+id/btn_home_exitgame"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:text="Exit Game">
