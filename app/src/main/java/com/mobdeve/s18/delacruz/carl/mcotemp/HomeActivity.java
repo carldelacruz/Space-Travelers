@@ -18,12 +18,9 @@ public class HomeActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        binding.btnHomeCreatemap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent gotoCreateMap = new Intent(getApplicationContext(), CreatemapActivity.class);
-                startActivity(gotoCreateMap);
-            }
+        binding.btnHomeCreatemap.setOnClickListener(v -> {
+            Intent gotoCreateMap = new Intent(getApplicationContext(), CreatemapActivity.class);
+            startActivity(gotoCreateMap);
         });
     }
 }
