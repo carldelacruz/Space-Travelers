@@ -38,180 +38,210 @@
 
         <Button
             android:id="@+id/btn_createmap_00"
+            android:tag="00"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_01"
+            android:tag="01"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_02"
+            android:tag="02"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_03"
+            android:tag="03"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_04"
+            android:tag="04"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_10"
+            android:tag="10"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_11"
+            android:tag="11"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_12"
+            android:tag="12"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_13"
+            android:tag="13"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_14"
+            android:tag="14"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_20"
+            android:tag="20"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_21"
+            android:tag="21"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_22"
+            android:tag="22"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_23"
+            android:tag="23"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_24"
+            android:tag="24"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_30"
+            android:tag="30"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_31"
+            android:tag="31"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_32"
+            android:tag="32"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_33"
+            android:tag="33"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_34"
+            android:tag="34"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_40"
+            android:tag="40"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_41"
+            android:tag="41"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_42"
+            android:tag="42"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_43"
+            android:tag="43"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_44"
+            android:tag="44"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_50"
+            android:tag="50"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_51"
+            android:tag="51"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_52"
+            android:tag="52"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_53"
+            android:tag="53"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/btn_createmap_54"
+            android:tag="54"
             android:layout_height="55dp"
             android:layout_width="55dp"
             android:layout_margin="10dp"/>
