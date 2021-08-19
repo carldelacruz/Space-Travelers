@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
@@ -14,16 +15,24 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityCreatemapBinding;
+import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityCreatemapPopupBinding;
 import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
+import com.mobdeve.s18.delacruz.carl.mcotemp.model.Board;
 
 import java.util.ArrayList;
 
 public class CreatemapActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityCreatemapBinding binding;
     private LayoutInflater layoutInflater;
-    private PopupWindow popupWindow;
-    private ArrayList<Block> blocks;
-    private ArrayList<String> tags;
+    private ArrayList<Block> blocks = new ArrayList<>();
+    private Board board;
+    private ArrayList<Button> buttonsGrid = new ArrayList<>();
+    private ArrayList<Button> buttonsPopup = new ArrayList<>();
+    private String blockCoordinates;
+    private int x;
+    private int y;
+    private int type;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,40 +46,13 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
             startActivity(gotoHome);
         });
 
-        binding.btnCreatemap00.setOnClickListener(this);
-        binding.btnCreatemap01.setOnClickListener(this);
-        binding.btnCreatemap02.setOnClickListener(this);
-        binding.btnCreatemap03.setOnClickListener(this);
-        binding.btnCreatemap04.setOnClickListener(this);
-        binding.btnCreatemap10.setOnClickListener(this);
-        binding.btnCreatemap11.setOnClickListener(this);
-        binding.btnCreatemap12.setOnClickListener(this);
-        binding.btnCreatemap13.setOnClickListener(this);
-        binding.btnCreatemap14.setOnClickListener(this);
-        binding.btnCreatemap20.setOnClickListener(this);
-        binding.btnCreatemap21.setOnClickListener(this);
-        binding.btnCreatemap22.setOnClickListener(this);
-        binding.btnCreatemap23.setOnClickListener(this);
-        binding.btnCreatemap24.setOnClickListener(this);
-        binding.btnCreatemap30.setOnClickListener(this);
-        binding.btnCreatemap31.setOnClickListener(this);
-        binding.btnCreatemap32.setOnClickListener(this);
-        binding.btnCreatemap33.setOnClickListener(this);
-        binding.btnCreatemap34.setOnClickListener(this);
-        binding.btnCreatemap40.setOnClickListener(this);
-        binding.btnCreatemap41.setOnClickListener(this);
-        binding.btnCreatemap42.setOnClickListener(this);
-        binding.btnCreatemap43.setOnClickListener(this);
-        binding.btnCreatemap44.setOnClickListener(this);
-        binding.btnCreatemap50.setOnClickListener(this);
-        binding.btnCreatemap51.setOnClickListener(this);
-        binding.btnCreatemap52.setOnClickListener(this);
-        binding.btnCreatemap53.setOnClickListener(this);
-        binding.btnCreatemap54.setOnClickListener(this);
+        // arraylist of buttons in grid
+        initButtonsGrid();
     }
 
     @Override
     public void onClick(View v) {
+        // logic for popup window
         layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = layoutInflater.inflate(R.layout.activity_createmap_popup, null);
 
@@ -81,18 +63,63 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
 
         popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
 
-        //
+        initButtonsPopup(popupView);
 
-        // get tag of each button
-        switch (v.getId()) {
-            case R.id.btn_createmap_00:
-                tags.add(binding.btnCreatemap00.getTag().toString());
-                break;
-            case R.id.btn_createmap_01:
-                binding.btnCreatemap01.getTag().toString();
-                break;
+        buttonsPopup.get(0).setOnClickListener(view -> {
+            // logic for getting the pressed button (blocks)
+            for(int i = 0; i < buttonsGrid.size(); i++) {
+                if(v.getId() == buttonsGrid.get(i).getId()) {
+                    // get details of button (coordinates, type)
+                    blockCoordinates = buttonsGrid.get(i).getTag().toString();
+                    x = Integer.parseInt(blockCoordinates.substring(0, 1));
+                    y = Integer.parseInt(blockCoordinates.substring(1));
+                    blocks.add(new Block(x, y, Integer.parseInt(buttonsPopup.get(0).getTag().toString())));
+                }
+            }
+        });
+
+    }
+
+    public void initButtonsGrid() {
+        buttonsGrid.add(binding.btnCreatemap00);
+        buttonsGrid.add(binding.btnCreatemap01);
+        buttonsGrid.add(binding.btnCreatemap02);
+        buttonsGrid.add(binding.btnCreatemap03);
+        buttonsGrid.add(binding.btnCreatemap04);
+        buttonsGrid.add(binding.btnCreatemap10);
+        buttonsGrid.add(binding.btnCreatemap11);
+        buttonsGrid.add(binding.btnCreatemap12);
+        buttonsGrid.add(binding.btnCreatemap13);
+        buttonsGrid.add(binding.btnCreatemap14);
+        buttonsGrid.add(binding.btnCreatemap20);
+        buttonsGrid.add(binding.btnCreatemap21);
+        buttonsGrid.add(binding.btnCreatemap22);
+        buttonsGrid.add(binding.btnCreatemap23);
+        buttonsGrid.add(binding.btnCreatemap24);
+        buttonsGrid.add(binding.btnCreatemap30);
+        buttonsGrid.add(binding.btnCreatemap31);
+        buttonsGrid.add(binding.btnCreatemap32);
+        buttonsGrid.add(binding.btnCreatemap33);
+        buttonsGrid.add(binding.btnCreatemap34);
+        buttonsGrid.add(binding.btnCreatemap40);
+        buttonsGrid.add(binding.btnCreatemap41);
+        buttonsGrid.add(binding.btnCreatemap42);
+        buttonsGrid.add(binding.btnCreatemap43);
+        buttonsGrid.add(binding.btnCreatemap44);
+        buttonsGrid.add(binding.btnCreatemap50);
+        buttonsGrid.add(binding.btnCreatemap51);
+        buttonsGrid.add(binding.btnCreatemap52);
+        buttonsGrid.add(binding.btnCreatemap53);
+        buttonsGrid.add(binding.btnCreatemap54);
+
+        for(int i = 0; i < buttonsGrid.size(); i++) {
+            buttonsGrid.get(i).setOnClickListener(this);
         }
-
-//        blocks.add(new Block())
+    }
+    public void initButtonsPopup(View popupView) {
+        buttonsPopup.add(popupView.findViewById(R.id.btn_createmap_popup_teleporter));
+        buttonsPopup.add(popupView.findViewById(R.id.btn_createmap_popup_blackhole));
+        buttonsPopup.add(popupView.findViewById(R.id.btn_createmap_popup_immunity));
+        buttonsPopup.add(popupView.findViewById(R.id.btn_createmap_popup_disabled));
     }
 }

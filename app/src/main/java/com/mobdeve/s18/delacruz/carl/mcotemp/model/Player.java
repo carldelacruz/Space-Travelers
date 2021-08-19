@@ -4,11 +4,21 @@ public class Player {
     private int playerNum;
     private int[] pos;
     private int status;
+    private boolean isAI;
 
-    public Player(int playerNum, int[] pos, int status) {
+    public Player(int playerNum, int[] pos, int status, boolean isAI) {
         this.playerNum = playerNum;
         this.pos = pos;
         this.status = status;
+        this.isAI = isAI;
+    }
+
+    public boolean isAI() {
+        return isAI;
+    }
+
+    public void setAI(boolean AI) {
+        isAI = AI;
     }
 
     public int getPlayerNum() {

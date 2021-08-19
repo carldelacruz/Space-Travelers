@@ -1,26 +1,39 @@
 package com.mobdeve.s18.delacruz.carl.mcotemp.model;
-
+/*
+* Type: 0 - normal block
+*       1 - teleport
+*       2 - blackhole
+*       3 - immunity
+*       4 - disabled*/
 public class Block {
-    private int[] coordinates;
+    private int x;
+    private int y;
     private int type;
     private boolean isConnected;
     private boolean isOccupied;
-    private Player isOccupiedByWho;
+    private int isOccupiedByWho;
     private int[] partnerCoordinates;
 
-    public Block(int[] coordinates, int type, boolean isConnected, boolean isOccupied) {
-        this.coordinates = coordinates;
+    public Block(int x, int y, int type) {
+        this.x = x;
+        this.y = y;
         this.type = type;
-        this.isConnected = isConnected;
-        this.isOccupied = isOccupied;
     }
 
-    public int[] getCoordinates() {
-        return coordinates;
+    public int getX() {
+        return x;
     }
 
-    public void setCoordinates(int[] coordinates) {
-        this.coordinates = coordinates;
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     public int getType() {
@@ -31,11 +44,11 @@ public class Block {
         this.type = type;
     }
 
-    public Player getIsOccupiedByWho() {
+    public int getIsOccupiedByWho() {
         return isOccupiedByWho;
     }
 
-    public void setIsOccupiedByWho(Player isOccupiedByWho) {
+    public void setIsOccupiedByWho(int isOccupiedByWho) {
         this.isOccupiedByWho = isOccupiedByWho;
     }
 

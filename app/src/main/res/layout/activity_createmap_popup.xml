@@ -30,6 +30,7 @@
 
             <Button
                 android:id="@+id/btn_createmap_popup_teleporter"
+                android:tag="1"
                 android:layout_width="130dp"
                 android:layout_height="60dp"
                 android:text="Teleporter"
@@ -37,6 +38,7 @@
 
             <Button
                 android:id="@+id/btn_createmap_popup_blackhole"
+                android:tag="2"
                 android:layout_width="130dp"
                 android:layout_height="60dp"
                 android:text="Blackhole"
@@ -52,6 +54,7 @@
 
             <Button
                 android:id="@+id/btn_createmap_popup_immunity"
+                android:tag="3"
                 android:layout_width="130dp"
                 android:layout_height="60dp"
                 android:text="Immunity"
@@ -59,6 +62,7 @@
 
             <Button
                 android:id="@+id/btn_createmap_popup_disabled"
+                android:tag="4"
                 android:layout_width="130dp"
                 android:layout_height="60dp"
                 android:text="Disabled"
