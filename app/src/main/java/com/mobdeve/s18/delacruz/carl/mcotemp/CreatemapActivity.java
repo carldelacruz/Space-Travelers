@@ -48,6 +48,8 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
 
         // arraylist of buttons in grid
         initButtonsGrid();
+
+
     }
 
     @Override
@@ -63,21 +65,86 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
 
         popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
 
-        initButtonsPopup(popupView);
+        popupView.findViewById(R.id.btn_createmap_popup_teleporter).setOnClickListener(view -> {
+            popupView.findViewById(R.id.btn_createmap_popup_next).setOnClickListener(a -> {
+                // logic for getting the pressed button (blocks)
+                for(int i = 0; i < buttonsGrid.size(); i++) {
+                    if(v.getId() == buttonsGrid.get(i).getId()) {
+                        // get details of button (coordinates, type)
+                        blockCoordinates = buttonsGrid.get(i).getTag().toString();
+                        x = Integer.parseInt(blockCoordinates.substring(0, 1));
+                        y = Integer.parseInt(blockCoordinates.substring(1));
+                        blocks.add(new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_teleporter).getTag().toString())));
 
-        buttonsPopup.get(0).setOnClickListener(view -> {
-            // logic for getting the pressed button (blocks)
-            for(int i = 0; i < buttonsGrid.size(); i++) {
-                if(v.getId() == buttonsGrid.get(i).getId()) {
-                    // get details of button (coordinates, type)
-                    blockCoordinates = buttonsGrid.get(i).getTag().toString();
-                    x = Integer.parseInt(blockCoordinates.substring(0, 1));
-                    y = Integer.parseInt(blockCoordinates.substring(1));
-                    blocks.add(new Block(x, y, Integer.parseInt(buttonsPopup.get(0).getTag().toString())));
+                        // find block and replace text
+                        buttonsGrid.get(i).setText("T");
+                    }
                 }
-            }
+
+
+                popupWindow.dismiss();
+            });
         });
 
+        popupView.findViewById(R.id.btn_createmap_popup_blackhole).setOnClickListener(view -> {
+            popupView.findViewById(R.id.btn_createmap_popup_next).setOnClickListener(a -> {
+                // logic for getting the pressed button (blocks)
+                for(int i = 0; i < buttonsGrid.size(); i++) {
+                    if(v.getId() == buttonsGrid.get(i).getId()) {
+                        // get details of button (coordinates, type)
+                        blockCoordinates = buttonsGrid.get(i).getTag().toString();
+                        x = Integer.parseInt(blockCoordinates.substring(0, 1));
+                        y = Integer.parseInt(blockCoordinates.substring(1));
+                        blocks.add(new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_blackhole).getTag().toString())));
+
+                        // find block and replace text
+                        buttonsGrid.get(i).setText("B");
+                    }
+                }
+
+                popupWindow.dismiss();
+            });
+        });
+
+        popupView.findViewById(R.id.btn_createmap_popup_immunity).setOnClickListener(view -> {
+            popupView.findViewById(R.id.btn_createmap_popup_next).setOnClickListener(a -> {
+                // logic for getting the pressed button (blocks)
+                for(int i = 0; i < buttonsGrid.size(); i++) {
+                    if(v.getId() == buttonsGrid.get(i).getId()) {
+                        // get details of button (coordinates, type)
+                        blockCoordinates = buttonsGrid.get(i).getTag().toString();
+                        x = Integer.parseInt(blockCoordinates.substring(0, 1));
+                        y = Integer.parseInt(blockCoordinates.substring(1));
+                        blocks.add(new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_immunity).getTag().toString())));
+
+                        // find block and replace text
+                        buttonsGrid.get(i).setText("I");
+                    }
+                }
+
+                popupWindow.dismiss();
+            });
+        });
+
+        popupView.findViewById(R.id.btn_createmap_popup_disabled).setOnClickListener(view -> {
+            popupView.findViewById(R.id.btn_createmap_popup_next).setOnClickListener(a -> {
+                // logic for getting the pressed button (blocks)
+                for(int i = 0; i < buttonsGrid.size(); i++) {
+                    if(v.getId() == buttonsGrid.get(i).getId()) {
+                        // get details of button (coordinates, type)
+                        blockCoordinates = buttonsGrid.get(i).getTag().toString();
+                        x = Integer.parseInt(blockCoordinates.substring(0, 1));
+                        y = Integer.parseInt(blockCoordinates.substring(1));
+                        blocks.add(new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_disabled).getTag().toString())));
+
+                        // find block and replace text
+                        buttonsGrid.get(i).setText("D");
+                    }
+                }
+
+                popupWindow.dismiss();
+            });
+        });
     }
 
     public void initButtonsGrid() {
@@ -115,11 +182,5 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
         for(int i = 0; i < buttonsGrid.size(); i++) {
             buttonsGrid.get(i).setOnClickListener(this);
         }
-    }
-    public void initButtonsPopup(View popupView) {
-        buttonsPopup.add(popupView.findViewById(R.id.btn_createmap_popup_teleporter));
-        buttonsPopup.add(popupView.findViewById(R.id.btn_createmap_popup_blackhole));
-        buttonsPopup.add(popupView.findViewById(R.id.btn_createmap_popup_immunity));
-        buttonsPopup.add(popupView.findViewById(R.id.btn_createmap_popup_disabled));
     }
 }

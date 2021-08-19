@@ -8,7 +8,7 @@ package com.mobdeve.s18.delacruz.carl.mcotemp.model;
 public class Block {
     private int x;
     private int y;
-    private int type;
+    private int type = 0;
     private boolean isConnected;
     private boolean isOccupied;
     private int isOccupiedByWho;
