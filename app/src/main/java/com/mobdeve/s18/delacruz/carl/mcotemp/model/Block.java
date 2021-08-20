@@ -14,6 +14,7 @@ public class Block {
     private int isOccupiedByWho;
     private int px;
     private int py;
+    private boolean isHead;
 
     public Block(int x, int y, int type) {
         this.x = x;

@@ -112,11 +112,18 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                             tempBlock.setPy(py);
                             tempBlock.setConnected(true);
 
+                            // change text of tail button
+                            for(int j = 0; j < buttonsGrid.size(); j++) {
+                                if(pBlockCoordinates.equals(buttonsGrid.get(j).getTag().toString())) {
+                                    buttonsGrid.get(j).setText("T");
+                                }
+                            }
+
                             // put in block object
                              blocks.add(tempBlock);
 
                             // find block and replace text, baguhin ung line na next, case to case
-                            buttonsGrid.get(i).setText(popupView.findViewById(R.id.btn_createmap_popup_teleporter).getTag().toString());
+                            buttonsGrid.get(i).setText("T");
                         }
                     }
 
@@ -171,7 +178,7 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                             blocks.add(tempBlock);
 
                             // find block and replace text, baguhin ung line na next, case to case
-                            buttonsGrid.get(i).setText(popupView.findViewById(R.id.btn_createmap_popup_blackhole).getTag().toString());
+                            buttonsGrid.get(i).setText("B");
                         }
                     }
 
@@ -226,7 +233,7 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                             blocks.add(tempBlock);
 
                             // find block and replace text, baguhin ung line na next, case to case
-                            buttonsGrid.get(i).setText(popupView.findViewById(R.id.btn_createmap_popup_immunity).getTag().toString());
+                            buttonsGrid.get(i).setText("I");
                         }
                     }
 
@@ -267,7 +274,6 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                             y = Integer.parseInt(blockCoordinates.substring(1));
 
                             // get coordinate of partner
-
                             px = Integer.parseInt(pBlockCoordinates.substring(0, 1));
                             py = Integer.parseInt(pBlockCoordinates.substring(1));
 
@@ -281,7 +287,7 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                             blocks.add(tempBlock);
 
                             // find block and replace text, baguhin ung line na next, case to case
-                            buttonsGrid.get(i).setText(popupView.findViewById(R.id.btn_createmap_popup_disabled).getTag().toString());
+                            buttonsGrid.get(i).setText("D");
                         }
                     }
 
