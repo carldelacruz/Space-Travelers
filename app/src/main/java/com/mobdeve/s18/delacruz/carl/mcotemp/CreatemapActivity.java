@@ -22,6 +22,8 @@ import com.mobdeve.s18.delacruz.carl.mcotemp.model.Board;
 
 import java.util.ArrayList;
 
+/*NOTES
+* 1. Clicking next in popup window without clicking on a type button doesn't show an error, walang validation*/
 public class CreatemapActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityCreatemapBinding binding;
     private LayoutInflater layoutInflater;
