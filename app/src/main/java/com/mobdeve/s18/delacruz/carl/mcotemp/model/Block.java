@@ -12,7 +12,8 @@ public class Block {
     private boolean isConnected;
     private boolean isOccupied;
     private int isOccupiedByWho;
-    private int[] partnerCoordinates;
+    private int px;
+    private int py;
 
     public Block(int x, int y, int type) {
         this.x = x;
@@ -68,11 +69,19 @@ public class Block {
         isOccupied = occupied;
     }
 
-    public int[] getPartnerCoordinates() {
-        return partnerCoordinates;
+    public int getPx() {
+        return px;
     }
 
-    public void setPartnerCoordinates(int[] partnerCoordinates) {
-        this.partnerCoordinates = partnerCoordinates;
+    public void setPx(int px) {
+        this.px = px;
+    }
+
+    public int getPy() {
+        return py;
+    }
+
+    public void setPy(int py) {
+        this.py = py;
     }
 }

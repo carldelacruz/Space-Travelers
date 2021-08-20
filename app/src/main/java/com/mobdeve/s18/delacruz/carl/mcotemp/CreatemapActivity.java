@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
@@ -29,8 +30,11 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
     private ArrayList<Button> buttonsGrid = new ArrayList<>();
     private ArrayList<Button> buttonsPopup = new ArrayList<>();
     private String blockCoordinates;
+    private String pBlockCoordinates;
     private int x;
     private int y;
+    private int px;
+    private int py;
     private int type;
 
 
@@ -65,84 +69,225 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
 
         popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
 
+        // validation, pag wala pa napress na type (teleport, blackhole, immunity, disabled) button
+        // wala pa
+
+        // popup window views, teleporter, blackhole, immunity, disabled, next, baguhin ung next line, case to case
         popupView.findViewById(R.id.btn_createmap_popup_teleporter).setOnClickListener(view -> {
+            // change background of kung ano mang pinress, next time
+            Button tempButton = popupView.findViewById(R.id.btn_createmap_popup_teleporter);
+            if (tempButton.isPressed()) {
+                Toast.makeText(this, "Teleporter selected", Toast.LENGTH_SHORT).show();
+                // next time na ung mag iiba background color, ill ask sir
+//                tempButton.setBackgroundColor(getResources().getColor(R.color.gray, null));
+            }
+
+
             popupView.findViewById(R.id.btn_createmap_popup_next).setOnClickListener(a -> {
-                // logic for getting the pressed button (blocks)
-                for(int i = 0; i < buttonsGrid.size(); i++) {
-                    if(v.getId() == buttonsGrid.get(i).getId()) {
-                        // get details of button (coordinates, type)
-                        blockCoordinates = buttonsGrid.get(i).getTag().toString();
-                        x = Integer.parseInt(blockCoordinates.substring(0, 1));
-                        y = Integer.parseInt(blockCoordinates.substring(1));
-                        blocks.add(new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_teleporter).getTag().toString())));
+                // get text from edit text
+                EditText et = popupView.findViewById(R.id.et_createmap_popup_pcoordinate);
+                pBlockCoordinates = et.getText().toString();
 
-                        // find block and replace text
-                        buttonsGrid.get(i).setText("T");
+                // validation, dapat may partner lagi pag maglalagay ng block
+                if (pBlockCoordinates.equals("")) {
+                    Toast.makeText(this, "PUT A TAIL COORDINATE", Toast.LENGTH_LONG).show();
+
+                } else {
+                    // logic for getting the pressed button (blocks)
+                    for(int i = 0; i < buttonsGrid.size(); i++) {
+                        if(v.getId() == buttonsGrid.get(i).getId()) {
+                            // get details of button (coordinates, type)
+                            blockCoordinates = buttonsGrid.get(i).getTag().toString();
+                            x = Integer.parseInt(blockCoordinates.substring(0, 1));
+                            y = Integer.parseInt(blockCoordinates.substring(1));
+
+                            // get coordinate of partner
+
+                            px = Integer.parseInt(pBlockCoordinates.substring(0, 1));
+                            py = Integer.parseInt(pBlockCoordinates.substring(1));
+
+                            // babaguhin ung line next to this, case to case
+                            Block tempBlock = new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_teleporter).getTag().toString()));
+                            tempBlock.setPx(px);
+                            tempBlock.setPy(py);
+                            tempBlock.setConnected(true);
+
+                            // put in block object
+                             blocks.add(tempBlock);
+
+                            // find block and replace text, baguhin ung line na next, case to case
+                            buttonsGrid.get(i).setText(popupView.findViewById(R.id.btn_createmap_popup_teleporter).getTag().toString());
+                        }
                     }
+
+
+                    popupWindow.dismiss();
                 }
-
-
-                popupWindow.dismiss();
             });
         });
 
+
+        // popup window views, teleporter, blackhole, immunity, disabled, next, baguhin ung next line, case to case
         popupView.findViewById(R.id.btn_createmap_popup_blackhole).setOnClickListener(view -> {
+            // change background of kung ano mang pinress, next time
+            Button tempButton = popupView.findViewById(R.id.btn_createmap_popup_blackhole);
+            if (tempButton.isPressed()) {
+                Toast.makeText(this, "Blackhole selected", Toast.LENGTH_SHORT).show();
+                // next time na ung mag iiba background color, ill ask sir
+//                tempButton.setBackgroundColor(getResources().getColor(R.color.gray, null));
+            }
+
+
             popupView.findViewById(R.id.btn_createmap_popup_next).setOnClickListener(a -> {
-                // logic for getting the pressed button (blocks)
-                for(int i = 0; i < buttonsGrid.size(); i++) {
-                    if(v.getId() == buttonsGrid.get(i).getId()) {
-                        // get details of button (coordinates, type)
-                        blockCoordinates = buttonsGrid.get(i).getTag().toString();
-                        x = Integer.parseInt(blockCoordinates.substring(0, 1));
-                        y = Integer.parseInt(blockCoordinates.substring(1));
-                        blocks.add(new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_blackhole).getTag().toString())));
+                // get text from edit text
+                EditText et = popupView.findViewById(R.id.et_createmap_popup_pcoordinate);
+                pBlockCoordinates = et.getText().toString();
 
-                        // find block and replace text
-                        buttonsGrid.get(i).setText("B");
+                // validation, dapat may partner lagi pag maglalagay ng block
+                if (pBlockCoordinates.equals("")) {
+                    Toast.makeText(this, "PUT A TAIL COORDINATE", Toast.LENGTH_LONG).show();
+
+                } else {
+                    // logic for getting the pressed button (blocks)
+                    for(int i = 0; i < buttonsGrid.size(); i++) {
+                        if(v.getId() == buttonsGrid.get(i).getId()) {
+                            // get details of button (coordinates, type)
+                            blockCoordinates = buttonsGrid.get(i).getTag().toString();
+                            x = Integer.parseInt(blockCoordinates.substring(0, 1));
+                            y = Integer.parseInt(blockCoordinates.substring(1));
+
+                            // get coordinate of partner
+
+                            px = Integer.parseInt(pBlockCoordinates.substring(0, 1));
+                            py = Integer.parseInt(pBlockCoordinates.substring(1));
+
+                            // babaguhin ung line next to this, case to case
+                            Block tempBlock = new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_blackhole).getTag().toString()));
+                            tempBlock.setPx(px);
+                            tempBlock.setPy(py);
+                            tempBlock.setConnected(true);
+
+                            // put in block object
+                            blocks.add(tempBlock);
+
+                            // find block and replace text, baguhin ung line na next, case to case
+                            buttonsGrid.get(i).setText(popupView.findViewById(R.id.btn_createmap_popup_blackhole).getTag().toString());
+                        }
                     }
-                }
 
-                popupWindow.dismiss();
+
+                    popupWindow.dismiss();
+                }
             });
         });
 
+
+        // popup window views, teleporter, blackhole, immunity, disabled, next, baguhin ung next line, case to case
         popupView.findViewById(R.id.btn_createmap_popup_immunity).setOnClickListener(view -> {
+            // change background of kung ano mang pinress, next time
+            Button tempButton = popupView.findViewById(R.id.btn_createmap_popup_immunity);
+            if (tempButton.isPressed()) {
+                Toast.makeText(this, "Immunity selected", Toast.LENGTH_SHORT).show();
+                // next time na ung mag iiba background color, ill ask sir
+//                tempButton.setBackgroundColor(getResources().getColor(R.color.gray, null));
+            }
+
+
             popupView.findViewById(R.id.btn_createmap_popup_next).setOnClickListener(a -> {
-                // logic for getting the pressed button (blocks)
-                for(int i = 0; i < buttonsGrid.size(); i++) {
-                    if(v.getId() == buttonsGrid.get(i).getId()) {
-                        // get details of button (coordinates, type)
-                        blockCoordinates = buttonsGrid.get(i).getTag().toString();
-                        x = Integer.parseInt(blockCoordinates.substring(0, 1));
-                        y = Integer.parseInt(blockCoordinates.substring(1));
-                        blocks.add(new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_immunity).getTag().toString())));
+                // get text from edit text
+                EditText et = popupView.findViewById(R.id.et_createmap_popup_pcoordinate);
+                pBlockCoordinates = et.getText().toString();
 
-                        // find block and replace text
-                        buttonsGrid.get(i).setText("I");
+                // validation, dapat may partner lagi pag maglalagay ng block
+                if (pBlockCoordinates.equals("")) {
+                    Toast.makeText(this, "PUT A TAIL COORDINATE", Toast.LENGTH_LONG).show();
+
+                } else {
+                    // logic for getting the pressed button (blocks)
+                    for(int i = 0; i < buttonsGrid.size(); i++) {
+                        if(v.getId() == buttonsGrid.get(i).getId()) {
+                            // get details of button (coordinates, type)
+                            blockCoordinates = buttonsGrid.get(i).getTag().toString();
+                            x = Integer.parseInt(blockCoordinates.substring(0, 1));
+                            y = Integer.parseInt(blockCoordinates.substring(1));
+
+                            // get coordinate of partner
+
+                            px = Integer.parseInt(pBlockCoordinates.substring(0, 1));
+                            py = Integer.parseInt(pBlockCoordinates.substring(1));
+
+                            // babaguhin ung line next to this, case to case
+                            Block tempBlock = new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_immunity).getTag().toString()));
+                            tempBlock.setPx(px);
+                            tempBlock.setPy(py);
+                            tempBlock.setConnected(true);
+
+                            // put in block object
+                            blocks.add(tempBlock);
+
+                            // find block and replace text, baguhin ung line na next, case to case
+                            buttonsGrid.get(i).setText(popupView.findViewById(R.id.btn_createmap_popup_immunity).getTag().toString());
+                        }
                     }
-                }
 
-                popupWindow.dismiss();
+
+                    popupWindow.dismiss();
+                }
             });
         });
 
+
+        // popup window views, teleporter, blackhole, immunity, disabled, next, baguhin ung next line, case to case
         popupView.findViewById(R.id.btn_createmap_popup_disabled).setOnClickListener(view -> {
+            // change background of kung ano mang pinress, next time
+            Button tempButton = popupView.findViewById(R.id.btn_createmap_popup_disabled);
+            if (tempButton.isPressed()) {
+                Toast.makeText(this, "Disabled selected", Toast.LENGTH_SHORT).show();
+                // next time na ung mag iiba background color, ill ask sir
+//                tempButton.setBackgroundColor(getResources().getColor(R.color.gray, null));
+            }
+
+
             popupView.findViewById(R.id.btn_createmap_popup_next).setOnClickListener(a -> {
-                // logic for getting the pressed button (blocks)
-                for(int i = 0; i < buttonsGrid.size(); i++) {
-                    if(v.getId() == buttonsGrid.get(i).getId()) {
-                        // get details of button (coordinates, type)
-                        blockCoordinates = buttonsGrid.get(i).getTag().toString();
-                        x = Integer.parseInt(blockCoordinates.substring(0, 1));
-                        y = Integer.parseInt(blockCoordinates.substring(1));
-                        blocks.add(new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_disabled).getTag().toString())));
+                // get text from edit text
+                EditText et = popupView.findViewById(R.id.et_createmap_popup_pcoordinate);
+                pBlockCoordinates = et.getText().toString();
 
-                        // find block and replace text
-                        buttonsGrid.get(i).setText("D");
+                // validation, dapat may partner lagi pag maglalagay ng block
+                if (pBlockCoordinates.equals("")) {
+                    Toast.makeText(this, "PUT A TAIL COORDINATE", Toast.LENGTH_LONG).show();
+
+                } else {
+                    // logic for getting the pressed button (blocks)
+                    for(int i = 0; i < buttonsGrid.size(); i++) {
+                        if(v.getId() == buttonsGrid.get(i).getId()) {
+                            // get details of button (coordinates, type)
+                            blockCoordinates = buttonsGrid.get(i).getTag().toString();
+                            x = Integer.parseInt(blockCoordinates.substring(0, 1));
+                            y = Integer.parseInt(blockCoordinates.substring(1));
+
+                            // get coordinate of partner
+
+                            px = Integer.parseInt(pBlockCoordinates.substring(0, 1));
+                            py = Integer.parseInt(pBlockCoordinates.substring(1));
+
+                            // babaguhin ung line next to this, case to case
+                            Block tempBlock = new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_disabled).getTag().toString()));
+                            tempBlock.setPx(px);
+                            tempBlock.setPy(py);
+                            tempBlock.setConnected(true);
+
+                            // put in block object
+                            blocks.add(tempBlock);
+
+                            // find block and replace text, baguhin ung line na next, case to case
+                            buttonsGrid.get(i).setText(popupView.findViewById(R.id.btn_createmap_popup_disabled).getTag().toString());
+                        }
                     }
-                }
 
-                popupWindow.dismiss();
+
+                    popupWindow.dismiss();
+                }
             });
         });
     }

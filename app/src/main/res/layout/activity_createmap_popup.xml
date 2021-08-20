@@ -70,6 +70,7 @@
         </LinearLayout>
 
         <EditText
+            android:id="@+id/et_createmap_popup_pcoordinate"
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:gravity="center"
