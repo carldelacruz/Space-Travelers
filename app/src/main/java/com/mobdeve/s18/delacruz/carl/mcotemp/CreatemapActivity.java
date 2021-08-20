@@ -102,7 +102,6 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                             y = Integer.parseInt(blockCoordinates.substring(1));
 
                             // get coordinate of partner
-
                             px = Integer.parseInt(pBlockCoordinates.substring(0, 1));
                             py = Integer.parseInt(pBlockCoordinates.substring(1));
 
@@ -112,10 +111,16 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                             tempBlock.setPy(py);
                             tempBlock.setConnected(true);
 
-                            // change text of tail button
+                            // get details of partner block and put to arraylist of blocks
                             for(int j = 0; j < buttonsGrid.size(); j++) {
                                 if(pBlockCoordinates.equals(buttonsGrid.get(j).getTag().toString())) {
                                     buttonsGrid.get(j).setText("T");
+                                    // case to case
+                                    Block tempBlock2 = new Block(px, py, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_teleporter).getTag().toString()));
+                                    tempBlock2.setPx(x);
+                                    tempBlock2.setPy(y);
+                                    tempBlock2.setConnected(true);
+                                    blocks.add(tempBlock2);
                                 }
                             }
 
@@ -164,7 +169,6 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                             y = Integer.parseInt(blockCoordinates.substring(1));
 
                             // get coordinate of partner
-
                             px = Integer.parseInt(pBlockCoordinates.substring(0, 1));
                             py = Integer.parseInt(pBlockCoordinates.substring(1));
 
@@ -173,6 +177,19 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                             tempBlock.setPx(px);
                             tempBlock.setPy(py);
                             tempBlock.setConnected(true);
+
+                            // get details of partner block and put to arraylist of blocks
+                            for(int j = 0; j < buttonsGrid.size(); j++) {
+                                if(pBlockCoordinates.equals(buttonsGrid.get(j).getTag().toString())) {
+                                    buttonsGrid.get(j).setText("B");
+                                    // case to case
+                                    Block tempBlock2 = new Block(px, py, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_blackhole).getTag().toString()));
+                                    tempBlock2.setPx(x);
+                                    tempBlock2.setPy(y);
+                                    tempBlock2.setConnected(true);
+                                    blocks.add(tempBlock2);
+                                }
+                            }
 
                             // put in block object
                             blocks.add(tempBlock);
@@ -229,6 +246,19 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                             tempBlock.setPy(py);
                             tempBlock.setConnected(true);
 
+                            // get details of partner block and put to arraylist of blocks
+                            for(int j = 0; j < buttonsGrid.size(); j++) {
+                                if(pBlockCoordinates.equals(buttonsGrid.get(j).getTag().toString())) {
+                                    buttonsGrid.get(j).setText("I");
+                                    // case to case
+                                    Block tempBlock2 = new Block(px, py, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_immunity).getTag().toString()));
+                                    tempBlock2.setPx(x);
+                                    tempBlock2.setPy(y);
+                                    tempBlock2.setConnected(true);
+                                    blocks.add(tempBlock2);
+                                }
+                            }
+
                             // put in block object
                             blocks.add(tempBlock);
 
@@ -282,6 +312,19 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                             tempBlock.setPx(px);
                             tempBlock.setPy(py);
                             tempBlock.setConnected(true);
+
+                            // get details of partner block and put to arraylist of blocks
+                            for(int j = 0; j < buttonsGrid.size(); j++) {
+                                if(pBlockCoordinates.equals(buttonsGrid.get(j).getTag().toString())) {
+                                    buttonsGrid.get(j).setText("D");
+                                    // case to case
+                                    Block tempBlock2 = new Block(px, py, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_disabled).getTag().toString()));
+                                    tempBlock2.setPx(x);
+                                    tempBlock2.setPy(y);
+                                    tempBlock2.setConnected(true);
+                                    blocks.add(tempBlock2);
+                                }
+                            }
 
                             // put in block object
                             blocks.add(tempBlock);
