@@ -22,5 +22,11 @@ public class HomeActivity extends AppCompatActivity {
             Intent gotoCreateMap = new Intent(getApplicationContext(), CreatemapActivity.class);
             startActivity(gotoCreateMap);
         });
+
+        binding.btnHomePlay.setOnClickListener(v ->{
+            Intent gotoGameplay = new Intent(getApplicationContext(), GameplayActivity.class);
+            startActivity(gotoGameplay);
+        });
+
     }
 }

@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Button
+        android:id="@+id/btn_gameplay_quit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
@@ -25,13 +26,14 @@
 
     </ImageView>
     <TextView
+        android:id="@+id/tv_roll_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="6"
         android:textSize="36dp"
         app:layout_constraintBottom_toTopOf="@id/btn_gp_roll"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="65dp"
+        android:layout_marginLeft="62.5dp"
         android:layout_marginBottom="50dp">
 
     </TextView>
@@ -46,15 +48,16 @@
         android:layout_marginBottom="50dp">
     </Button>
     <ImageView
+        android:id="@+id/iv_gp_icon"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/sample"
-        app:layout_constraintBottom_toTopOf="@id/tv_cm_turn"
+        app:layout_constraintBottom_toTopOf="@id/tv_gp_turn"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="10dp"></ImageView>
     <TextView
-        android:id="@+id/tv_cm_turn"
+        android:id="@+id/tv_gp_turn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
