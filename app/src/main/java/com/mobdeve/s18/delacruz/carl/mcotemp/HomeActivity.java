@@ -27,6 +27,10 @@ public class HomeActivity extends AppCompatActivity {
             Intent gotoGameplay = new Intent(getApplicationContext(), GameplayActivity.class);
             startActivity(gotoGameplay);
         });
+        binding.btnHomeSettings.setOnClickListener(v->{
+            Intent gotoSettings = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(gotoSettings);
+        });
 
     }
 }

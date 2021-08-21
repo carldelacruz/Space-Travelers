@@ -13,18 +13,13 @@
         android:text="Quit"
         android:layout_margin="10dp">
     </Button>
-    <ImageView
-        android:id="@+id/tv_cm_example"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:src="@drawable/example"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="150dp">
-
-    </ImageView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_datalist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_gameplay_quit"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
     <TextView
         android:id="@+id/tv_roll_val"
         android:layout_width="wrap_content"
