@@ -16,7 +16,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityCreatemapBinding;
-import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityCreatemapPopupBinding;
 import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
 import com.mobdeve.s18.delacruz.carl.mcotemp.model.Board;
 
