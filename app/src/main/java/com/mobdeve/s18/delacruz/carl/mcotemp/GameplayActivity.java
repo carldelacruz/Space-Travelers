@@ -7,10 +7,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityCreatemapBinding;
 import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityGameplayBinding;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class GameplayActivity extends AppCompatActivity implements View.OnClickListener{
@@ -19,6 +22,8 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
     final int max = 6;
     final int random = new Random().nextInt((max - min) + 1) + min;
     int x = 1;
+    private ArrayList<Tile> tileArrayList;
+    private TileAdapter tileAdapter;
 
 
     @Override
@@ -27,6 +32,11 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         binding = ActivityGameplayBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        tileArrayList = new DataHelper().initializeData();
+        tileAdapter = new TileAdapter(getApplicationContext(), tileArrayList);
+        binding.rvDatalist.setLayoutManager(new GridLayoutManager(getApplicationContext(),5));
+
+        binding.rvDatalist.setAdapter(tileAdapter);
 
         binding.btnGameplayQuit.setOnClickListener(v -> {
             Intent gotoHome = new Intent(getApplicationContext(), HomeActivity.class);

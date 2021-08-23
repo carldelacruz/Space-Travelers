@@ -3,6 +3,24 @@
     android:layout_width="50dp"
     android:layout_height="50dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/black">
+    android:layout_marginTop="25dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    >
+    <LinearLayout
+        android:id="@+id/ll_at_cards"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/iv_at_icon"
+            android:layout_width="85dp"
+            android:layout_height="60dp"
+            android:src="@drawable/tile"
+            >
+
+        </ImageView>
+
+    </LinearLayout>
+
 
 </androidx.cardview.widget.CardView>
