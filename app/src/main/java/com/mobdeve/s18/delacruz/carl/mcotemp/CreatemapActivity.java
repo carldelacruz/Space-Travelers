@@ -29,14 +29,10 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
     private ArrayList<Block> blocks = new ArrayList<>();
     private Board board;
     private ArrayList<Button> buttonsGrid = new ArrayList<>();
-    private ArrayList<Button> buttonsPopup = new ArrayList<>();
     private String blockCoordinates;
     private String pBlockCoordinates;
-    private int x;
-    private int y;
-    private int px;
-    private int py;
-    private int type;
+    private int blockNum;
+    private int pBlockNum;
 
 
     @Override
@@ -89,9 +85,10 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                 EditText et = popupView.findViewById(R.id.et_createmap_popup_pcoordinate);
                 pBlockCoordinates = et.getText().toString();
 
+
                 // validation, dapat may partner lagi pag maglalagay ng block
-                if (pBlockCoordinates.equals("")) {
-                    Toast.makeText(this, "PUT A TAIL COORDINATE", Toast.LENGTH_LONG).show();
+                if (Integer.parseInt(pBlockCoordinates) < 0 && Integer.parseInt(pBlockCoordinates) > 29) {
+                    Toast.makeText(this, "BLOCK OUT OF RANGE", Toast.LENGTH_LONG).show();
 
                 } else {
                     // logic for getting the pressed button (blocks)
@@ -99,27 +96,27 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                         if(v.getId() == buttonsGrid.get(i).getId()) {
                             // get details of button (coordinates, type)
                             blockCoordinates = buttonsGrid.get(i).getTag().toString();
-                            x = Integer.parseInt(blockCoordinates.substring(0, 1));
-                            y = Integer.parseInt(blockCoordinates.substring(1));
+
+                            // to be changed dahil nag iba ung coordinates
+                            blockNum = Integer.parseInt(blockCoordinates);
 
                             // get coordinate of partner
-                            px = Integer.parseInt(pBlockCoordinates.substring(0, 1));
-                            py = Integer.parseInt(pBlockCoordinates.substring(1));
+                            pBlockNum = Integer.parseInt(pBlockCoordinates);
 
                             // babaguhin ung line next to this, case to case
-                            Block tempBlock = new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_teleporter).getTag().toString()));
-                            tempBlock.setPx(px);
-                            tempBlock.setPy(py);
+                            Block tempBlock = new Block(blockNum, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_teleporter).getTag().toString()));
+                            tempBlock.setpBlockNum(pBlockNum);
                             tempBlock.setConnected(true);
 
                             // get details of partner block and put to arraylist of blocks
                             for(int j = 0; j < buttonsGrid.size(); j++) {
                                 if(pBlockCoordinates.equals(buttonsGrid.get(j).getTag().toString())) {
                                     buttonsGrid.get(j).setText("T");
+                                    buttonsGrid.get(j).setBackgroundColor(getColor(R.color.teal_200));
+
                                     // case to case
-                                    Block tempBlock2 = new Block(px, py, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_teleporter).getTag().toString()));
-                                    tempBlock2.setPx(x);
-                                    tempBlock2.setPy(y);
+                                    Block tempBlock2 = new Block(pBlockNum, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_teleporter).getTag().toString()));
+                                    tempBlock2.setpBlockNum(blockNum);
                                     tempBlock2.setConnected(true);
                                     blocks.add(tempBlock2);
                                 }
@@ -130,6 +127,7 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
 
                             // find block and replace text, baguhin ung line na next, case to case
                             buttonsGrid.get(i).setText("T");
+                            buttonsGrid.get(i).setBackgroundColor(getColor(R.color.teal_200));
                         }
                     }
 
@@ -156,9 +154,10 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                 EditText et = popupView.findViewById(R.id.et_createmap_popup_pcoordinate);
                 pBlockCoordinates = et.getText().toString();
 
+
                 // validation, dapat may partner lagi pag maglalagay ng block
-                if (pBlockCoordinates.equals("")) {
-                    Toast.makeText(this, "PUT A TAIL COORDINATE", Toast.LENGTH_LONG).show();
+                if (Integer.parseInt(pBlockCoordinates) < 0 && Integer.parseInt(pBlockCoordinates) > 29) {
+                    Toast.makeText(this, "BLOCK OUT OF RANGE", Toast.LENGTH_LONG).show();
 
                 } else {
                     // logic for getting the pressed button (blocks)
@@ -166,27 +165,26 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                         if(v.getId() == buttonsGrid.get(i).getId()) {
                             // get details of button (coordinates, type)
                             blockCoordinates = buttonsGrid.get(i).getTag().toString();
-                            x = Integer.parseInt(blockCoordinates.substring(0, 1));
-                            y = Integer.parseInt(blockCoordinates.substring(1));
+
+                            // to be changed dahil nag iba ung coordinates
+                            blockNum = Integer.parseInt(blockCoordinates);
 
                             // get coordinate of partner
-                            px = Integer.parseInt(pBlockCoordinates.substring(0, 1));
-                            py = Integer.parseInt(pBlockCoordinates.substring(1));
+                            pBlockNum = Integer.parseInt(pBlockCoordinates);
 
                             // babaguhin ung line next to this, case to case
-                            Block tempBlock = new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_blackhole).getTag().toString()));
-                            tempBlock.setPx(px);
-                            tempBlock.setPy(py);
+                            Block tempBlock = new Block(blockNum, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_blackhole).getTag().toString()));
+                            tempBlock.setpBlockNum(pBlockNum);
                             tempBlock.setConnected(true);
 
                             // get details of partner block and put to arraylist of blocks
                             for(int j = 0; j < buttonsGrid.size(); j++) {
                                 if(pBlockCoordinates.equals(buttonsGrid.get(j).getTag().toString())) {
                                     buttonsGrid.get(j).setText("B");
+                                    buttonsGrid.get(j).setBackgroundColor(getColor(R.color.teal_200));
                                     // case to case
-                                    Block tempBlock2 = new Block(px, py, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_blackhole).getTag().toString()));
-                                    tempBlock2.setPx(x);
-                                    tempBlock2.setPy(y);
+                                    Block tempBlock2 = new Block(pBlockNum, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_blackhole).getTag().toString()));
+                                    tempBlock2.setpBlockNum(blockNum);
                                     tempBlock2.setConnected(true);
                                     blocks.add(tempBlock2);
                                 }
@@ -197,6 +195,7 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
 
                             // find block and replace text, baguhin ung line na next, case to case
                             buttonsGrid.get(i).setText("B");
+                            buttonsGrid.get(i).setBackgroundColor(getColor(R.color.teal_200));
                         }
                     }
 
@@ -223,9 +222,10 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                 EditText et = popupView.findViewById(R.id.et_createmap_popup_pcoordinate);
                 pBlockCoordinates = et.getText().toString();
 
+
                 // validation, dapat may partner lagi pag maglalagay ng block
-                if (pBlockCoordinates.equals("")) {
-                    Toast.makeText(this, "PUT A TAIL COORDINATE", Toast.LENGTH_LONG).show();
+                if (Integer.parseInt(pBlockCoordinates) < 0 && Integer.parseInt(pBlockCoordinates) > 29) {
+                    Toast.makeText(this, "BLOCK OUT OF RANGE", Toast.LENGTH_LONG).show();
 
                 } else {
                     // logic for getting the pressed button (blocks)
@@ -233,28 +233,26 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                         if(v.getId() == buttonsGrid.get(i).getId()) {
                             // get details of button (coordinates, type)
                             blockCoordinates = buttonsGrid.get(i).getTag().toString();
-                            x = Integer.parseInt(blockCoordinates.substring(0, 1));
-                            y = Integer.parseInt(blockCoordinates.substring(1));
+
+                            // to be changed dahil nag iba ung coordinates
+                            blockNum = Integer.parseInt(blockCoordinates);
 
                             // get coordinate of partner
-
-                            px = Integer.parseInt(pBlockCoordinates.substring(0, 1));
-                            py = Integer.parseInt(pBlockCoordinates.substring(1));
+                            pBlockNum = Integer.parseInt(pBlockCoordinates);
 
                             // babaguhin ung line next to this, case to case
-                            Block tempBlock = new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_immunity).getTag().toString()));
-                            tempBlock.setPx(px);
-                            tempBlock.setPy(py);
+                            Block tempBlock = new Block(blockNum, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_immunity).getTag().toString()));
+                            tempBlock.setpBlockNum(pBlockNum);
                             tempBlock.setConnected(true);
 
                             // get details of partner block and put to arraylist of blocks
                             for(int j = 0; j < buttonsGrid.size(); j++) {
                                 if(pBlockCoordinates.equals(buttonsGrid.get(j).getTag().toString())) {
                                     buttonsGrid.get(j).setText("I");
+                                    buttonsGrid.get(j).setBackgroundColor(getColor(R.color.teal_200));
                                     // case to case
-                                    Block tempBlock2 = new Block(px, py, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_immunity).getTag().toString()));
-                                    tempBlock2.setPx(x);
-                                    tempBlock2.setPy(y);
+                                    Block tempBlock2 = new Block(pBlockNum, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_immunity).getTag().toString()));
+                                    tempBlock2.setpBlockNum(blockNum);
                                     tempBlock2.setConnected(true);
                                     blocks.add(tempBlock2);
                                 }
@@ -265,6 +263,7 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
 
                             // find block and replace text, baguhin ung line na next, case to case
                             buttonsGrid.get(i).setText("I");
+                            buttonsGrid.get(i).setBackgroundColor(getColor(R.color.teal_200));
                         }
                     }
 
@@ -291,9 +290,10 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                 EditText et = popupView.findViewById(R.id.et_createmap_popup_pcoordinate);
                 pBlockCoordinates = et.getText().toString();
 
+
                 // validation, dapat may partner lagi pag maglalagay ng block
-                if (pBlockCoordinates.equals("")) {
-                    Toast.makeText(this, "PUT A TAIL COORDINATE", Toast.LENGTH_LONG).show();
+                if (Integer.parseInt(pBlockCoordinates) < 0 && Integer.parseInt(pBlockCoordinates) > 29) {
+                    Toast.makeText(this, "BLOCK OUT OF RANGE", Toast.LENGTH_LONG).show();
 
                 } else {
                     // logic for getting the pressed button (blocks)
@@ -301,27 +301,26 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                         if(v.getId() == buttonsGrid.get(i).getId()) {
                             // get details of button (coordinates, type)
                             blockCoordinates = buttonsGrid.get(i).getTag().toString();
-                            x = Integer.parseInt(blockCoordinates.substring(0, 1));
-                            y = Integer.parseInt(blockCoordinates.substring(1));
+
+                            // to be changed dahil nag iba ung coordinates
+                            blockNum = Integer.parseInt(blockCoordinates);
 
                             // get coordinate of partner
-                            px = Integer.parseInt(pBlockCoordinates.substring(0, 1));
-                            py = Integer.parseInt(pBlockCoordinates.substring(1));
+                            pBlockNum = Integer.parseInt(pBlockCoordinates);
 
                             // babaguhin ung line next to this, case to case
-                            Block tempBlock = new Block(x, y, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_disabled).getTag().toString()));
-                            tempBlock.setPx(px);
-                            tempBlock.setPy(py);
+                            Block tempBlock = new Block(blockNum, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_disabled).getTag().toString()));
+                            tempBlock.setpBlockNum(pBlockNum);
                             tempBlock.setConnected(true);
 
                             // get details of partner block and put to arraylist of blocks
                             for(int j = 0; j < buttonsGrid.size(); j++) {
                                 if(pBlockCoordinates.equals(buttonsGrid.get(j).getTag().toString())) {
                                     buttonsGrid.get(j).setText("D");
+                                    buttonsGrid.get(j).setBackgroundColor(getColor(R.color.teal_200));
                                     // case to case
-                                    Block tempBlock2 = new Block(px, py, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_disabled).getTag().toString()));
-                                    tempBlock2.setPx(x);
-                                    tempBlock2.setPy(y);
+                                    Block tempBlock2 = new Block(pBlockNum, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_disabled).getTag().toString()));
+                                    tempBlock2.setpBlockNum(blockNum);
                                     tempBlock2.setConnected(true);
                                     blocks.add(tempBlock2);
                                 }
@@ -332,6 +331,7 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
 
                             // find block and replace text, baguhin ung line na next, case to case
                             buttonsGrid.get(i).setText("D");
+                            buttonsGrid.get(i).setBackgroundColor(getColor(R.color.teal_200));
                         }
                     }
 

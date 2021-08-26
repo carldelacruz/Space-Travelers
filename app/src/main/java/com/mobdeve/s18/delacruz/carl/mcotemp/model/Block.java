@@ -6,36 +6,41 @@ package com.mobdeve.s18.delacruz.carl.mcotemp.model;
 *       3 - immunity
 *       4 - disabled*/
 public class Block {
-    private int x;
-    private int y;
+    private int blockNum;
     private int type = 0;
     private boolean isConnected;
     private boolean isOccupied;
     private int isOccupiedByWho;
-    private int px;
-    private int py;
+    private int pBlockNum;
     private boolean isHead;
 
-    public Block(int x, int y, int type) {
-        this.x = x;
-        this.y = y;
+    public Block(int pBlockNum, int type) {
+        this.pBlockNum = pBlockNum;
         this.type = type;
     }
 
-    public int getX() {
-        return x;
+    public int getBlockNum() {
+        return blockNum;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setBlockNum(int blockNum) {
+        this.blockNum = blockNum;
     }
 
-    public int getY() {
-        return y;
+    public int getpBlockNum() {
+        return pBlockNum;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setpBlockNum(int pBlockNum) {
+        this.pBlockNum = pBlockNum;
+    }
+
+    public boolean isHead() {
+        return isHead;
+    }
+
+    public void setHead(boolean head) {
+        isHead = head;
     }
 
     public int getType() {
@@ -68,21 +73,5 @@ public class Block {
 
     public void setOccupied(boolean occupied) {
         isOccupied = occupied;
-    }
-
-    public int getPx() {
-        return px;
-    }
-
-    public void setPx(int px) {
-        this.px = px;
-    }
-
-    public int getPy() {
-        return py;
-    }
-
-    public void setPy(int py) {
-        this.py = py;
     }
 }
