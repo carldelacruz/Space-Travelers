@@ -17,9 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreatemapActivity"></activity>
-        <activity android:name=".SetuppageActivity"></activity>
         <activity android:name=".GameplayActivity"></activity>
         <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".ChooseMapActivity"></activity>
+        <activity android:name=".SetupActivity"></activity>
+
 
     </application>
 
