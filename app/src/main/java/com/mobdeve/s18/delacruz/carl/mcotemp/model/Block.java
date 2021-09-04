@@ -1,22 +1,30 @@
 package com.mobdeve.s18.delacruz.carl.mcotemp.model;
 /*
-* Type: 0 - normal block
-*       1 - teleport
-*       2 - blackhole
-*       3 - immunity
-*       4 - disabled*/
+ * Type: 0 - normal block
+ *       1 - teleport
+ *       2 - blackhole
+ *       3 - immunity
+ *       4 - disabled
+ *
+ * Occupied by who: 1 - player 1
+ *                  2 - player 2
+ *                  3 - player 3
+ *                  4 - player 4*/
 public class Block {
     private int blockNum;
-    private int type = 0;
-    private boolean isConnected;
-    private boolean isOccupied;
+    private int blockType;
+    private int isConnected; // serves as boolean 1 and 0
+    private int isOccupied; // serves as boolean 1 and 0
     private int isOccupiedByWho;
     private int pBlockNum;
-    private boolean isHead;
+    private int isHead; // serves as boolean 1 and 0
 
-    public Block(int pBlockNum, int type) {
-        this.pBlockNum = pBlockNum;
-        this.type = type;
+    public Block(int blockNum, int blockType) {
+        this.blockNum = blockNum;
+        this.blockType = blockType;
+    }
+
+    public Block() {
     }
 
     public int getBlockNum() {
@@ -35,20 +43,20 @@ public class Block {
         this.pBlockNum = pBlockNum;
     }
 
-    public boolean isHead() {
+    public int getIsHead() {
         return isHead;
     }
 
-    public void setHead(boolean head) {
+    public void setHead(int head) {
         isHead = head;
     }
 
-    public int getType() {
-        return type;
+    public int getBlockType() {
+        return blockType;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setBlockType(int blockType) {
+        this.blockType = blockType;
     }
 
     public int getIsOccupiedByWho() {
@@ -59,19 +67,19 @@ public class Block {
         this.isOccupiedByWho = isOccupiedByWho;
     }
 
-    public boolean isConnected() {
+    public int getIsConnected() {
         return isConnected;
     }
 
-    public void setConnected(boolean connected) {
+    public void setConnected(int connected) {
         isConnected = connected;
     }
 
-    public boolean isOccupied() {
+    public int isOccupied() {
         return isOccupied;
     }
 
-    public void setOccupied(boolean occupied) {
+    public void setOccupied(int occupied) {
         isOccupied = occupied;
     }
 }
