@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityHomeBinding;
+import com.mobdeve.s18.delacruz.carl.mcotemp.services.MusicService;
 
 public class HomeActivity extends AppCompatActivity {
     private ActivityHomeBinding binding;
@@ -17,6 +18,8 @@ public class HomeActivity extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        startService(new Intent(this, MusicService.class));
 
         binding.btnHomeCreatemap.setOnClickListener(v -> {
             Intent gotoCreateMap = new Intent(getApplicationContext(), CreatemapActivity.class);
