@@ -18,6 +18,7 @@ public class MusicService extends Service {
     public void onCreate() {
         super.onCreate();
         player = MediaPlayer.create(this, R.raw.backgroundmusic);
+        player.setLooping(true);
         player.setVolume(50,50);
         Log.d("Service MusicService","onCreate Initialize");
     }

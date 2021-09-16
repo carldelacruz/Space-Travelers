@@ -4,6 +4,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/spacebackground"
+        />
+
     <Button
         android:id="@+id/btn_settings_back"
         android:layout_width="wrap_content"
@@ -29,13 +36,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Background Music"
-            android:textSize="24sp">
+            android:textSize="24sp"
+            android:textColor="@color/white">
         </TextView>
 
         <SeekBar
             android:id="@+id/sb_background_music"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"/>
+            android:layout_margin="30dp"
+            android:thumbTint="@color/black"
+            android:background="@color/white"
+            android:progressBackgroundTint="@color/white"
+            android:progressTint="@color/black"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
