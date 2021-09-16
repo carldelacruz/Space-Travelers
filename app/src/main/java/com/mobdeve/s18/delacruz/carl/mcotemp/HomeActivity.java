@@ -2,15 +2,31 @@ package com.mobdeve.s18.delacruz.carl.mcotemp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityHomeBinding;
 import com.mobdeve.s18.delacruz.carl.mcotemp.services.MusicService;
 
+import java.util.List;
+
 public class HomeActivity extends AppCompatActivity {
     private ActivityHomeBinding binding;
+
+    private boolean bound;
+    private MusicService musicService;
+    private Intent musicIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +34,6 @@ public class HomeActivity extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
-        startService(new Intent(this, MusicService.class));
 
         binding.btnHomeCreatemap.setOnClickListener(v -> {
             Intent gotoCreateMap = new Intent(getApplicationContext(), CreatemapActivity.class);
@@ -30,10 +44,68 @@ public class HomeActivity extends AppCompatActivity {
             Intent gotoChoosemap = new Intent(getApplicationContext(), ChooseMapActivity.class);
             startActivity(gotoChoosemap);
         });
+
         binding.btnHomeSettings.setOnClickListener(v->{
             Intent gotoSettings = new Intent(getApplicationContext(), SettingsActivity.class);
             startActivity(gotoSettings);
         });
 
+        musicIntent = new Intent(this, MusicService.class);
+        musicService = new MusicService();
+
+        startService(musicIntent);
+        if(!bound)
+            bindService(musicIntent, mConnection, BIND_AUTO_CREATE);
     }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        if(bound)
+            unbindService(mConnection);
+        stopService(musicIntent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startService(musicIntent);
+    }
+
+    @Override
+    public void onPause() {
+        if (isApplicationSentToBackground(this)){
+            musicService.pauseMusic();
+        }
+        super.onPause();
+    }
+
+    public boolean isApplicationSentToBackground(final Context context) {
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
+        if (!tasks.isEmpty()) {
+            ComponentName topActivity = tasks.get(0).topActivity;
+            if (!topActivity.getPackageName().equals(context.getPackageName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private ServiceConnection mConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+            MusicService.LocalBinder binder = (MusicService.LocalBinder) service;
+            musicService = (binder.getService());
+            bound = true;
+            Log.d(" - SERVICE","ServiceConnection made");
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            bound = false;
+        }
+    };
 }

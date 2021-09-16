@@ -48,10 +48,9 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockViewHol
     // watever u want to do sa ui component dito ilalagay
     @Override
     public void onBindViewHolder(BlockAdapter.BlockViewHolder holder, int position) {
-        switch
-        holder.btn_block.setText(blockList.get(position).getBlockNum());
-        holder.btn_block.setTag();
-
+        for(int i = 0; i < blockList.size(); i++) {
+            if (blockList.get(i).getMapName() == "");
+        }
     }
 
     protected class BlockViewHolder extends RecyclerView.ViewHolder {
