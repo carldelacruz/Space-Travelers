@@ -6,27 +6,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
-import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
-
 import java.util.ArrayList;
+
+import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
 
 public class DAOSQLImpl {
     private SQLiteDatabase database;
     private DBHelper dbhelper;
-    private String tableName;
 
-    public DAOSQLImpl(Context context, String tableName) {
+    public DAOSQLImpl(Context context) {
         dbhelper = new DBHelper(context);
-        this.tableName = tableName;
-        this.dbhelper.setTableName(tableName);
-    }
-
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
-
-    public String getTableName() {
-        return this.tableName;
     }
 
     public boolean addData(ArrayList<Block> blocks) {
@@ -40,8 +29,9 @@ public class DAOSQLImpl {
             cv.put(DBHelper.isConnected, blocks.get(i).getIsConnected());
             cv.put(DBHelper.pBlockNum, blocks.get(i).getpBlockNum());
             cv.put(DBHelper.isHead, blocks.get(i).getIsHead());
+            cv.put(DBHelper.mapName, blocks.get(i).getMapName());
 
-            id = database.insert(this.tableName, null, cv);
+            id = database.insert(DBHelper.tableName, null, cv);
             cv.clear();
         }
 
@@ -62,7 +52,8 @@ public class DAOSQLImpl {
                             DBHelper.blockType,
                             DBHelper.isConnected,
                             DBHelper.pBlockNum,
-                            DBHelper.isHead};
+                            DBHelper.isHead,
+                            DBHelper.mapName};
 
         database = dbhelper.getReadableDatabase();
 
@@ -83,6 +74,7 @@ public class DAOSQLImpl {
             temp.setConnected(cursor.getInt(2));
             temp.setpBlockNum(cursor.getInt(3));
             temp.setHead(cursor.getInt(4));
+            temp.setMapName(cursor.getString(5));
             result.add(temp);
             cursor.moveToNext();
         }
@@ -101,7 +93,7 @@ public class DAOSQLImpl {
     public Block getBlock(int blockNum) {
         Block block = null;
 
-        String query = "SELECT * FROM " + this.tableName + " WHERE " + DBHelper.blockNum + " = " + blockNum;
+        String query = "SELECT * FROM " + DBHelper.tableName + " WHERE " + DBHelper.blockNum + " = " + blockNum;
 
         Cursor cursor = null;
 
@@ -118,6 +110,7 @@ public class DAOSQLImpl {
                 block.setConnected(cursor.getInt(cursor.getColumnIndex(DBHelper.isConnected)));
                 block.setpBlockNum(cursor.getInt(cursor.getColumnIndex(DBHelper.pBlockNum)));
                 block.setHead(cursor.getInt(cursor.getColumnIndex(DBHelper.isHead)));
+                block.setMapName(cursor.getString(cursor.getColumnIndex(DBHelper.mapName)));
             }
         } catch (SQLiteException e) {
             return null;

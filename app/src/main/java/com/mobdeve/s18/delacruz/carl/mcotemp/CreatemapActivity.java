@@ -2,6 +2,7 @@ package com.mobdeve.s18.delacruz.carl.mcotemp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,8 +33,6 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
     private int blockNum;
     private int pBlockNum;
 
-    // ung isHead s set ko din
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,9 +50,14 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
 
         binding.btnCreatemapSave.setOnClickListener(v -> {
             if (!binding.etCreatemapNameofmap.getText().toString().equals("")) {
-                String tableName = binding.etCreatemapNameofmap.getText().toString();
+                String mapName = binding.etCreatemapNameofmap.getText().toString();
 
-                DAOSQLImpl database = new DAOSQLImpl(this, tableName);
+                DAOSQLImpl database = new DAOSQLImpl(this);
+
+                // fill it up with map name
+                for(int j = 0; j < blocks.size(); j++) {
+                    blocks.get(j).setMapName(mapName);
+                }
 
                 boolean result = database.addData(blocks);
 
@@ -68,13 +72,17 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
 
                 ArrayList<Block> blocksContainer = database.getBlocks();
 
+
+
                 for(int i = 0; i < blocksContainer.size(); i++) {
-                    Toast.makeText(this, "\n Block num: " + blocksContainer.get(i).getBlockNum()
-                    + "\n Block type: " + blocksContainer.get(i).getBlockType()
-                    + "\n IsConnected: " + blocksContainer.get(i).getIsConnected()
-                    + "\n pBlockNum: " + blocksContainer.get(i).getpBlockNum()
-                    + "\n isHead: " + blocksContainer.get(i).getIsHead()
-                    , Toast.LENGTH_LONG).show();
+                    String getter = "\n Block num: " + blocksContainer.get(i).getBlockNum()
+                            + "\n Block type: " + blocksContainer.get(i).getBlockType()
+                            + "\n IsConnected: " + blocksContainer.get(i).getIsConnected()
+                            + "\n pBlockNum: " + blocksContainer.get(i).getpBlockNum()
+                            + "\n isHead: " + blocksContainer.get(i).getIsHead()
+                            + "\n mapNum: " + blocksContainer.get(i).getMapName();
+
+                    Log.i("Details: ", getter, null);
 
 //                    Toast.makeText(this, "\n Block num: " + blocks.get(i).getBlockNum()
 //                                    + "\n Block type: " + blocks.get(i).getBlockType()

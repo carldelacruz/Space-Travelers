@@ -18,6 +18,7 @@ public class Block {
     private int isOccupiedByWho;
     private int pBlockNum;
     private int isHead; // serves as boolean 1 and 0
+    private String mapName;
 
     public Block(int blockNum, int blockType) {
         this.blockNum = blockNum;
@@ -25,6 +26,14 @@ public class Block {
     }
 
     public Block() {
+    }
+
+    public String getMapName() {
+        return mapName;
+    }
+
+    public void setMapName(String mapName) {
+        this.mapName = mapName;
     }
 
     public int getBlockNum() {

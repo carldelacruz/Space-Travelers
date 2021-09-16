@@ -10,19 +10,16 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "mapdata.db";
     private static final int DB_VERSION = 1;
 
-    public String tableName;
+    public static String tableName = "Maps";
     public static String blockNum = "blockNum";
     public static String blockType = "blockType";
     public static String isConnected = "isConnected";
     public static String pBlockNum = "pBlockNum";
     public static String isHead = "isHead";
+    public static String mapName = "mapName";
 
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
-    }
-
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
     }
 
     public String getTableName() {
@@ -31,7 +28,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + tableName + " ( " + blockNum + " integer primary key, " + blockType + " integer, " + isConnected + " integer, " +  pBlockNum + " integer, " + isHead + " integer );");
+        db.execSQL("create table " + tableName + " ( " + blockNum + " integer, " + blockType + " integer, " + isConnected + " integer, " +  pBlockNum + " integer, " + isHead + " integer, " + mapName + " integer );");
     }
 
     @Override
