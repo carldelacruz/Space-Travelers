@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_choosemap_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -12,6 +12,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:text=""
         android:layout_margin="10dp">
-    </Button>
+    </androidx.appcompat.widget.AppCompatButton>
 
 </androidx.cardview.widget.CardView>

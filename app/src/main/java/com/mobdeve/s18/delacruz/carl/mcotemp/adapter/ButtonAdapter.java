@@ -4,25 +4,27 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mobdeve.s18.delacruz.carl.mcotemp.R;
 import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 
 public class ButtonAdapter extends RecyclerView.Adapter<ButtonAdapter.ButtonViewHolder>{
-    private ArrayList<Button> buttonList;
+    private ArrayList<Block> buttonList ;
     private Context context;
 
-    public ButtonAdapter(ArrayList<Button> ButtonList, Context context) {
-        this.buttonList = ButtonList;
+    public ButtonAdapter(ArrayList<Block> buttonList, Context context) {
+        this.buttonList = buttonList;
         this.context = context;
     }
 
-    public void addBlocks (ArrayList<Block> blocksList) {
+    public void addButtons (ArrayList<Block> buttonList) {
         buttonList.clear();
         buttonList.addAll(buttonList);
         notifyDataSetChanged();
@@ -35,7 +37,7 @@ public class ButtonAdapter extends RecyclerView.Adapter<ButtonAdapter.ButtonView
 
     public ButtonAdapter.ButtonViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.block_data, parent, false);
+                .inflate(R.layout.activity_choose, parent, false);
 
         ButtonAdapter.ButtonViewHolder buttonViewHolder = new ButtonAdapter.ButtonViewHolder(view);
         return buttonViewHolder;
@@ -44,13 +46,19 @@ public class ButtonAdapter extends RecyclerView.Adapter<ButtonAdapter.ButtonView
     // watever u want to do sa ui component dito ilalagay
     @Override
     public void onBindViewHolder(ButtonAdapter.ButtonViewHolder holder, int position) {
-        holder.btn_choosemap_button.setText(buttonList.get(position).get());
-        holder.btn_block.setTag();
+        HashSet<String> hset;
+            hset= new HashSet<String>(Collections.singleton(buttonList.get(position).getMapName()));
+
+        String[] mapnames = hset.toArray(new String[hset.size()]);
+        for(int i=0;i<mapnames.length;i++){
+                holder.btn_choosemap_button.setText(mapnames[i]);
+        }
+
 
     }
 
     protected class ButtonViewHolder extends RecyclerView.ViewHolder {
-        Button btn_choosemap_button;
+        AppCompatButton btn_choosemap_button;
 
         public ButtonViewHolder(View view) {
             super(view);
