@@ -18,13 +18,6 @@ public class ChooseMapActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        binding.btnChoosemapBack.setOnClickListener(v -> {
-            Intent gotoHome = new Intent(getApplicationContext(), HomeActivity.class);
-            startActivity(gotoHome);
-        });
-        binding.btnChoosemapChoose.setOnClickListener(v -> {
-            Intent gotoSetup = new Intent(getApplicationContext(), SetupActivity.class);
-            startActivity(gotoSetup);
-        });
+
     }
 }
