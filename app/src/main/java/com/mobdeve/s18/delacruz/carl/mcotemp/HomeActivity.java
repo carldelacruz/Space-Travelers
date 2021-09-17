@@ -31,6 +31,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
@@ -74,12 +75,14 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onPause() {
+        // check if app went to home
         if (isApplicationSentToBackground(this)){
             musicService.pauseMusic();
         }
         super.onPause();
     }
 
+    // checks if application is sent to background
     public boolean isApplicationSentToBackground(final Context context) {
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
