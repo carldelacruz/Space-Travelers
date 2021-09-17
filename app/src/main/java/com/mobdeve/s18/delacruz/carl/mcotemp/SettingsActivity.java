@@ -1,5 +1,8 @@
 package com.mobdeve.s18.delacruz.carl.mcotemp;
 
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -11,8 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityGameplayBinding;
 import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivitySettingsBinding;
+import com.mobdeve.s18.delacruz.carl.mcotemp.services.MusicService;
 
-public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
+import java.util.List;
+
+public class SettingsActivity extends AppCompatActivity {
     private ActivitySettingsBinding binding;
     private AudioManager audioManager;
 
@@ -57,11 +63,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             Intent gotoHome = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(gotoHome);
         });
-
-
     }
-    @Override
-    public void onClick(View v) {
 
-    }
 }

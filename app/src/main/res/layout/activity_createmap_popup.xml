@@ -12,14 +12,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:orientation="vertical"
-        android:background="@color/teal_200"
+        android:background="@color/gray"
         android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choose what tile to place as head"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
 
         <LinearLayout
             android:id="@+id/ll_createmap_popup_headtail"

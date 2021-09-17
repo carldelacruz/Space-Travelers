@@ -20,9 +20,6 @@ import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
 
 import java.util.ArrayList;
 
-/*NOTES
- * 1. Clicking next in popup window without clicking on a blockType button doesn't show an error, walang validation
- * 2. */
 public class CreatemapActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityCreatemapBinding binding;
     private LayoutInflater layoutInflater;
@@ -49,10 +46,24 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
         initButtonsGrid();
 
         binding.btnCreatemapSave.setOnClickListener(v -> {
+            // validate map name
             if (!binding.etCreatemapNameofmap.getText().toString().equals("")) {
                 String mapName = binding.etCreatemapNameofmap.getText().toString();
 
                 DAOSQLImpl database = new DAOSQLImpl(this);
+
+                // put normal blocks
+                for(int l = 0; l < 30; l++) {
+                    if (!buttonsGrid.get(l).getText().toString().equals("T")) {
+                        if (!buttonsGrid.get(l).getText().toString().equals("B")) {
+                            if (!buttonsGrid.get(l).getText().toString().equals("I")) {
+                                if (!buttonsGrid.get(l).getText().toString().equals("D")) {
+                                    blocks.add(new Block(Integer.parseInt(buttonsGrid.get(l).getTag().toString()), 0));
+                                }
+                            }
+                        }
+                    }
+                }
 
                 // fill it up with map name
                 for(int j = 0; j < blocks.size(); j++) {
@@ -82,14 +93,7 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                             + "\n isHead: " + blocksContainer.get(i).getIsHead()
                             + "\n mapNum: " + blocksContainer.get(i).getMapName();
 
-                    Log.i("Details: ", getter, null);
-
-//                    Toast.makeText(this, "\n Block num: " + blocks.get(i).getBlockNum()
-//                                    + "\n Block type: " + blocks.get(i).getBlockType()
-//                                    + "\n IsConnected: " + blocks.get(i).getIsConnected()
-//                                    + "\n pBlockNum: " + blocks.get(i).getpBlockNum()
-//                                    + "\n isHead: " + blocks.get(i).getIsHead()
-//                            , Toast.LENGTH_LONG).show();
+                    Log.i("Details: ", getter, null); // details of blocks put in map
                 }
 
             } else {
@@ -111,17 +115,13 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
 
         popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
 
-        // validation, pag wala pa napress na blockType (teleport, blackhole, immunity, disabled) button
-        // wala pa
 
-        // popup window views, teleporter, blackhole, immunity, disabled, next, baguhin ung next line, case to case
+        // case to case
         popupView.findViewById(R.id.btn_createmap_popup_teleporter).setOnClickListener(view -> {
-            // change background of kung ano mang pinress, next time
+            // change background of pressed block type (not yet implemented)
             Button tempButton = popupView.findViewById(R.id.btn_createmap_popup_teleporter);
             if (tempButton.isPressed()) {
                 Toast.makeText(this, "Teleporter selected", Toast.LENGTH_SHORT).show();
-                // next time na ung mag iiba background color, ill ask sir
-//                tempButton.setBackgroundColor(getResources().getColor(R.color.gray, null));
             }
 
 
@@ -131,9 +131,9 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                 pBlockCoordinates = et.getText().toString();
 
 
-                // validation, pag may laman ung pblockcoordinate
+                // validation, if pblockcoordinate has a value
                 if (!pBlockCoordinates.equals("")) {
-                    // validation, dapat may partner lagi pag maglalagay ng block
+                    // validation for coordinate, should be in the range 0-29
                     if (Integer.parseInt(pBlockCoordinates) < 0 || Integer.parseInt(pBlockCoordinates) > 29) {
                         Toast.makeText(this, "BLOCK OUT OF RANGE", Toast.LENGTH_LONG).show();
 
@@ -144,13 +144,13 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                                 // get details of button (coordinates, blockType)
                                 blockCoordinates = buttonsGrid.get(i).getTag().toString();
 
-                                // to be changed dahil nag iba ung coordinates
+                                // get blockcoordinates of pressed button
                                 blockNum = Integer.parseInt(blockCoordinates);
 
-                                // get coordinate of partner
+                                // get coordinate of partner (edit text view)
                                 pBlockNum = Integer.parseInt(pBlockCoordinates);
 
-                                // babaguhin ung line next to this, case to case
+                                // case to case
                                 Block tempBlock = new Block(blockNum, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_teleporter).getTag().toString()));
                                 tempBlock.setpBlockNum(pBlockNum);
                                 tempBlock.setConnected(1);
@@ -174,7 +174,7 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                                 // put in block object
                                 blocks.add(tempBlock);
 
-                                // find block and replace text, baguhin ung line na next, case to case
+                                // find block and replace text, case to case
                                 buttonsGrid.get(i).setText("T");
                                 buttonsGrid.get(i).setBackgroundColor(getColor(R.color.teal_200));
                             }
@@ -191,14 +191,12 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
         });
 
 
-        // popup window views, teleporter, blackhole, immunity, disabled, next, baguhin ung next line, case to case
+        // case to case
         popupView.findViewById(R.id.btn_createmap_popup_blackhole).setOnClickListener(view -> {
-            // change background of kung ano mang pinress, next time
+            // change background pressed block type (not yet implemented)
             Button tempButton = popupView.findViewById(R.id.btn_createmap_popup_blackhole);
             if (tempButton.isPressed()) {
                 Toast.makeText(this, "Blackhole selected", Toast.LENGTH_SHORT).show();
-                // next time na ung mag iiba background color, ill ask sir
-//                tempButton.setBackgroundColor(getResources().getColor(R.color.gray, null));
             }
 
             popupView.findViewById(R.id.btn_createmap_popup_next).setOnClickListener(a -> {
@@ -207,9 +205,9 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                 pBlockCoordinates = et.getText().toString();
 
 
-                // validation, pag may laman ung pblockcoordinate
+                // validation, if pblockcoordinate has a value
                 if (!pBlockCoordinates.equals("")) {
-                    // validation, dapat may partner lagi pag maglalagay ng block
+                    // validation for coordinate, should be in the range 0-29
                     if (Integer.parseInt(pBlockCoordinates) < 0 || Integer.parseInt(pBlockCoordinates) > 29) {
                         Toast.makeText(this, "BLOCK OUT OF RANGE", Toast.LENGTH_LONG).show();
 
@@ -220,13 +218,13 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                                 // get details of button (coordinates, blockType)
                                 blockCoordinates = buttonsGrid.get(i).getTag().toString();
 
-                                // to be changed dahil nag iba ung coordinates
+                                // get blockcoordinates of pressed button
                                 blockNum = Integer.parseInt(blockCoordinates);
 
                                 // get coordinate of partner
                                 pBlockNum = Integer.parseInt(pBlockCoordinates);
 
-                                // babaguhin ung line next to this, case to case
+                                // case to case
                                 Block tempBlock = new Block(blockNum, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_blackhole).getTag().toString()));
                                 tempBlock.setpBlockNum(pBlockNum);
                                 tempBlock.setConnected(1);
@@ -266,14 +264,12 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
         });
 
 
-        // popup window views, teleporter, blackhole, immunity, disabled, next, baguhin ung next line, case to case
+        // case to case
         popupView.findViewById(R.id.btn_createmap_popup_immunity).setOnClickListener(view -> {
-            // change background of kung ano mang pinress, next time
+            // change background of pressed block type (not yet implemented)
             Button tempButton = popupView.findViewById(R.id.btn_createmap_popup_immunity);
             if (tempButton.isPressed()) {
                 Toast.makeText(this, "Immunity selected", Toast.LENGTH_SHORT).show();
-                // next time na ung mag iiba background color, ill ask sir
-//                tempButton.setBackgroundColor(getResources().getColor(R.color.gray, null));
             }
 
 
@@ -283,7 +279,7 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                 pBlockCoordinates = et.getText().toString();
 
 
-                // validation, pag may laman ung pblockcoordinate
+                // validation, if pblockcoordinate has a value
                 if (!pBlockCoordinates.equals("")) {
                     // validation, dapat may partner lagi pag maglalagay ng block
                     if (Integer.parseInt(pBlockCoordinates) < 0 || Integer.parseInt(pBlockCoordinates) > 29) {
@@ -296,13 +292,13 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                                 // get details of button (coordinates, blockType)
                                 blockCoordinates = buttonsGrid.get(i).getTag().toString();
 
-                                // to be changed dahil nag iba ung coordinates
+                                // get blockcoordinates of pressed button
                                 blockNum = Integer.parseInt(blockCoordinates);
 
                                 // get coordinate of partner
                                 pBlockNum = Integer.parseInt(pBlockCoordinates);
 
-                                // babaguhin ung line next to this, case to case
+                                // case to case
                                 Block tempBlock = new Block(blockNum, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_immunity).getTag().toString()));
                                 tempBlock.setpBlockNum(pBlockNum);
                                 tempBlock.setConnected(1);
@@ -342,14 +338,12 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
         });
 
 
-        // popup window views, teleporter, blackhole, immunity, disabled, next, baguhin ung next line, case to case
+        //  case to case
         popupView.findViewById(R.id.btn_createmap_popup_disabled).setOnClickListener(view -> {
-            // change background of kung ano mang pinress, next time
+            // change background of pressed block type (not yet implemented)
             Button tempButton = popupView.findViewById(R.id.btn_createmap_popup_disabled);
             if (tempButton.isPressed()) {
                 Toast.makeText(this, "Disabled selected", Toast.LENGTH_SHORT).show();
-                // next time na ung mag iiba background color, ill ask sir
-//                tempButton.setBackgroundColor(getResources().getColor(R.color.gray, null));
             }
 
 
@@ -359,9 +353,9 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                 pBlockCoordinates = et.getText().toString();
 
 
-                // validation, pag may laman ung pblockcoordinate
+                // validation, if pblockcoordinate has a value
                 if (!pBlockCoordinates.equals("")) {
-                    // validation, dapat may partner lagi pag maglalagay ng block
+                    // validation for coordinate, should be in the range 0-29
                     if (Integer.parseInt(pBlockCoordinates) < 0 || Integer.parseInt(pBlockCoordinates) > 29) {
                         Toast.makeText(this, "BLOCK OUT OF RANGE", Toast.LENGTH_LONG).show();
 
@@ -372,13 +366,13 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
                                 // get details of button (coordinates, blockType)
                                 blockCoordinates = buttonsGrid.get(i).getTag().toString();
 
-                                // to be changed dahil nag iba ung coordinates
+                                // get blockcoordinates of pressed button
                                 blockNum = Integer.parseInt(blockCoordinates);
 
                                 // get coordinate of partner
                                 pBlockNum = Integer.parseInt(pBlockCoordinates);
 
-                                // babaguhin ung line next to this, case to case
+                                // case to case
                                 Block tempBlock = new Block(blockNum, Integer.parseInt(popupView.findViewById(R.id.btn_createmap_popup_disabled).getTag().toString()));
                                 tempBlock.setpBlockNum(pBlockNum);
                                 tempBlock.setConnected(1);
