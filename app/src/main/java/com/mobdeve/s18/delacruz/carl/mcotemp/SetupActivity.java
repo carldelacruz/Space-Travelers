@@ -17,6 +17,8 @@ public class SetupActivity extends AppCompatActivity {
         binding = ActivitySetuppageBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        Intent intent = getIntent();
+        binding.tvSetuppageMapname.setText(intent.getStringExtra("mapName"));
 
         binding.btnSetuppageBack.setOnClickListener(v -> {
             Intent gotoChoosemap = new Intent(getApplicationContext(), ChooseMapActivity.class);
