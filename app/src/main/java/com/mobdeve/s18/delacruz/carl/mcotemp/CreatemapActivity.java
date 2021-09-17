@@ -52,6 +52,19 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
 
                 DAOSQLImpl database = new DAOSQLImpl(this);
 
+                // put normal blocks
+                for(int l = 0; l < 30; l++) {
+                    if (!buttonsGrid.get(l).getText().toString().equals("T")) {
+                        if (!buttonsGrid.get(l).getText().toString().equals("B")) {
+                            if (!buttonsGrid.get(l).getText().toString().equals("I")) {
+                                if (!buttonsGrid.get(l).getText().toString().equals("D")) {
+                                    blocks.add(new Block(Integer.parseInt(buttonsGrid.get(l).getTag().toString()), 0));
+                                }
+                            }
+                        }
+                    }
+                }
+
                 // fill it up with map name
                 for(int j = 0; j < blocks.size(); j++) {
                     blocks.get(j).setMapName(mapName);
