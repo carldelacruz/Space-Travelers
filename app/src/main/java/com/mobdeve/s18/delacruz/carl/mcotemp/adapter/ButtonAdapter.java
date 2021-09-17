@@ -1,6 +1,7 @@
 package com.mobdeve.s18.delacruz.carl.mcotemp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mobdeve.s18.delacruz.carl.mcotemp.R;
+import com.mobdeve.s18.delacruz.carl.mcotemp.SettingsActivity;
+import com.mobdeve.s18.delacruz.carl.mcotemp.SetupActivity;
 import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
 
 import java.util.ArrayList;
@@ -20,6 +23,7 @@ public class ButtonAdapter extends RecyclerView.Adapter<ButtonAdapter.ButtonView
     private Context context;
 
     public ButtonAdapter(ArrayList<Block> buttonList, Context context) {
+
         this.buttonList = buttonList;
         this.context = context;
     }
@@ -39,7 +43,18 @@ public class ButtonAdapter extends RecyclerView.Adapter<ButtonAdapter.ButtonView
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.activity_choose, parent, false);
 
-        ButtonAdapter.ButtonViewHolder buttonViewHolder = new ButtonAdapter.ButtonViewHolder(view);
+        ButtonViewHolder buttonViewHolder = new ButtonViewHolder(view);
+
+        buttonViewHolder.btn_choosemap_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int temp = buttonViewHolder.getAdapterPosition();
+                Intent intent = new Intent(parent.getContext(), SetupActivity.class  );
+                intent.putExtra("mapName", buttonList.get(temp).getMapName().toString());
+                parent.getContext().startActivity(intent);
+
+            }
+        });
         return buttonViewHolder;
     }
 
@@ -53,6 +68,7 @@ public class ButtonAdapter extends RecyclerView.Adapter<ButtonAdapter.ButtonView
         for(int i=0;i<mapnames.length;i++){
                 holder.btn_choosemap_button.setText(mapnames[i]);
         }
+
 
 
     }
