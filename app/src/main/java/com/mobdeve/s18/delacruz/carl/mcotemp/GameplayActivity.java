@@ -28,6 +28,10 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
     private ArrayList<Block> blockList;
     DAOSQLImpl database = new DAOSQLImpl(this);
     private BlockAdapter blockAdapter;
+    String mapName;
+    int ai;
+    int player;
+
 
 
 
@@ -42,6 +46,10 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         blockAdapter = new BlockAdapter(blockList,getApplicationContext());
         binding.rvDatalist.setLayoutManager(new GridLayoutManager(getApplicationContext(),5));
         binding.rvDatalist.setAdapter(blockAdapter);
+        Intent intent = getIntent();
+        mapName = intent.getStringExtra("mapName");
+        player = intent.getIntExtra("player",-1);
+        ai = intent.getIntExtra("ai",-1);
 
 
 

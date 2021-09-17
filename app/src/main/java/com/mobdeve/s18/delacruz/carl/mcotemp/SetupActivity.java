@@ -11,6 +11,8 @@ import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivitySetuppageBindin
 
 public class SetupActivity extends AppCompatActivity {
     private ActivitySetuppageBinding binding;
+    private int player=0;
+    private int ai= 0;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -18,14 +20,41 @@ public class SetupActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         Intent intent = getIntent();
-        binding.tvSetuppageMapname.setText(intent.getStringExtra("mapName"));
+        String mapName = intent.getStringExtra("mapName");
+        Intent gotoGameplay = new Intent(getApplicationContext(), GameplayActivity.class);
 
         binding.btnSetuppageBack.setOnClickListener(v -> {
             Intent gotoChoosemap = new Intent(getApplicationContext(), ChooseMapActivity.class);
             startActivity(gotoChoosemap);
         });
+        binding.btnSetuppageAi1.setOnClickListener(v -> {
+            ai=1;
+            player=0;
+        });
+        binding.btnSetuppageAi2.setOnClickListener(v -> {
+            ai=2;
+            player=0;
+        });
+        binding.btnSetuppageAi3.setOnClickListener(v -> {
+            ai=3;
+            player=0;
+        });
+        binding.btnSetuppageMp1.setOnClickListener(v -> {
+            player=1;
+            ai=0;
+        });
+        binding.btnSetuppageMp2.setOnClickListener(v -> {
+            player=2;
+            ai=0;
+        });
+        binding.btnSetuppageMp3.setOnClickListener(v -> {
+            player=3;
+            ai=0;
+        });
         binding.btnSetuppagePlay.setOnClickListener(v -> {
-            Intent gotoGameplay = new Intent(getApplicationContext(), GameplayActivity.class);
+            intent.putExtra("mapName",mapName);
+            gotoGameplay.putExtra("ai", ai);
+            gotoGameplay.putExtra("player", player);
             startActivity(gotoGameplay);
         });
     }
