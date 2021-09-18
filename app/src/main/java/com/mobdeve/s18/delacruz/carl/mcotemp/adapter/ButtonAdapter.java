@@ -20,12 +20,13 @@ import java.util.Collections;
 import java.util.HashSet;
 
 public class ButtonAdapter extends RecyclerView.Adapter<ButtonAdapter.ButtonViewHolder>{
-    private ArrayList<Block> buttonList ;
+    private ArrayList<String> mapName;
     private Context context;
 
-    public ButtonAdapter(ArrayList<Block> buttonList, Context context) {
+    public ButtonAdapter(ArrayList<String> mapName, Context context) {
 
-        this.buttonList = buttonList;
+        //this.buttonList = buttonList;
+        this.mapName = mapName;
         this.context = context;
     }
 
@@ -37,7 +38,7 @@ public class ButtonAdapter extends RecyclerView.Adapter<ButtonAdapter.ButtonView
 
     @Override
     public int getItemCount() {
-        return buttonList.size();
+        return mapName.size();
     }
 
     public ButtonAdapter.ButtonViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
@@ -51,7 +52,7 @@ public class ButtonAdapter extends RecyclerView.Adapter<ButtonAdapter.ButtonView
             public void onClick(View v) {
                 int temp = buttonViewHolder.getAdapterPosition();
                 Intent intent = new Intent(parent.getContext(), SetupActivity.class  );
-                intent.putExtra("mapName", buttonList.get(temp).getMapName().toString());
+                intent.putExtra("mapName",mapName.get(temp));
                 parent.getContext().startActivity(intent);
 
             }
@@ -62,14 +63,9 @@ public class ButtonAdapter extends RecyclerView.Adapter<ButtonAdapter.ButtonView
     // watever u want to do sa ui component dito ilalagay
     @Override
     public void onBindViewHolder(ButtonAdapter.ButtonViewHolder holder, int position) {
-        HashSet<String> hset;
-            hset= new HashSet<String>(Collections.singleton(buttonList.get(position).getMapName()));
 
-        String[] mapnames = hset.toArray(new String[hset.size()]);
-        for(int i=0;i<mapnames.length;i++){
-                holder.btn_choosemap_button.setText(mapnames[i]);
-        }
-        Log.d("Recycler view",String.valueOf(mapnames.length));
+        holder.btn_choosemap_button.setText(mapName.get(position));
+
 
 
     }
