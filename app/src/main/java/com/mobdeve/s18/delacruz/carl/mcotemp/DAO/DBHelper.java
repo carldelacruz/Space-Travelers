@@ -22,10 +22,6 @@ public class DBHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
-    public String getTableName() {
-        return tableName;
-    }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + tableName + " ( " + blockNum + " integer, " + blockType + " integer, " + isConnected + " integer, " +  pBlockNum + " integer, " + isHead + " integer, " + mapName + " integer );");

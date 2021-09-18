@@ -57,7 +57,7 @@ public class DAOSQLImpl {
 
         database = dbhelper.getReadableDatabase();
 
-        Cursor cursor = database.query(dbhelper.getTableName(),
+        Cursor cursor = database.query(DBHelper.tableName,
                 columns,
                 null,
                 null,
