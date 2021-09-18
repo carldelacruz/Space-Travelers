@@ -61,8 +61,16 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
                 player.setImageResource(R.drawable.sample2);
                 x=2;
             }
-            else{
-                player.setImageResource(R.drawable.sample);
+            else if(x==2){
+                player.setImageResource(R.drawable.sample3);
+                x=3;
+            }
+            else if(x==3){
+                player.setImageResource(R.drawable.sample4);
+                x=4;
+            }
+            else if(x==4){
+                player.setImageResource(R.drawable.sample1);
                 x=1;
             }
 

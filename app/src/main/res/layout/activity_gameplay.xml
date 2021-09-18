@@ -4,6 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/spacebackground"
+        />
 
     <Button
         android:id="@+id/btn_gameplay_quit"
@@ -21,226 +27,482 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="Map"
-        android:textSize="28dp">
+        android:textSize="28dp"
+        android:textColor="@color/white"
+        >
     </TextView>
+    <GridLayout
+        android:id="@+id/gl_gameplay_mapbg"
+        android:layout_width="match_parent"
+        android:layout_height="475dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_gameplay_quit"
+        android:columnCount="5"
+        android:padding="1dp"
+        >
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+        />
+        <ImageView
+            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:background="@drawable/tile"
+            android:layout_margin="1dp"
+            />
+
+
+
+
+    </GridLayout>
     <GridLayout
         android:id="@+id/gl_gameplay_map"
         android:layout_width="match_parent"
         android:layout_height="475dp"
         app:layout_constraintTop_toBottomOf="@id/btn_gameplay_quit"
         android:columnCount="5"
-        android:padding="5dp"
+        android:padding="1dp"
         >
         <Button
             android:id="@+id/btn_gameplay_29"
             android:tag="29"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
             android:text="29"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
 
         <Button
             android:id="@+id/btn_gameplay_28"
             android:tag="28"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
-            android:text="28"/>
+            android:text="28"
+            android:background="#00000000"
+            android:layout_margin="1dp"
+            />
 
         <Button
             android:id="@+id/btn_gameplay_27"
             android:tag="27"
             android:text="27"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_26"
             android:tag="26"
             android:text="26"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_25"
             android:tag="25"
             android:text="25"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_20"
             android:tag="20"
             android:text="20"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_21"
             android:tag="21"
             android:text="21"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_22"
             android:tag="22"
             android:text="22"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_23"
             android:tag="23"
             android:text="23"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_24"
             android:tag="24"
             android:text="24"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_19"
             android:tag="19"
             android:text="19"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_18"
             android:tag="18"
             android:text="18"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_17"
             android:tag="17"
             android:text="17"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_16"
             android:tag="16"
             android:text="16"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_15"
             android:tag="15"
             android:text="15"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_10"
             android:tag="10"
             android:text="10"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_11"
             android:tag="11"
             android:text="11"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_12"
             android:tag="12"
             android:text="12"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_13"
             android:tag="13"
             android:text="13"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_14"
             android:tag="14"
             android:text="14"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_9"
             android:tag="9"
             android:text="9"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_8"
             android:tag="8"
             android:text="8"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_7"
             android:tag="7"
             android:text="7"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_6"
             android:tag="6"
             android:text="6"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_5"
             android:tag="5"
             android:text="5"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_0"
             android:tag="0"
             android:text="0"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_1"
             android:tag="1"
             android:text="1"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_2"
             android:tag="2"
             android:text="2"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_3"
             android:tag="3"
             android:text="3"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
         <Button
             android:id="@+id/btn_gameplay_4"
             android:tag="4"
             android:text="4"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_width="80dp"
+            android:background="#00000000"
+            android:layout_margin="1dp"
             />
     </GridLayout>
     <TextView
@@ -252,7 +514,9 @@
         app:layout_constraintBottom_toTopOf="@id/btn_gp_roll"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="62.5dp"
-        android:layout_marginBottom="40dp">
+        android:layout_marginBottom="40dp"
+        android:textColor="@color/white"
+        >
 
     </TextView>
     <Button
@@ -269,11 +533,12 @@
         android:id="@+id/iv_gp_icon"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/sample"
+        android:src="@drawable/sample1"
         app:layout_constraintBottom_toTopOf="@id/tv_gp_turn"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="10dp"></ImageView>
+        android:layout_marginBottom="10dp"
+        ></ImageView>
     <TextView
         android:id="@+id/tv_gp_turn"
         android:layout_width="wrap_content"
@@ -283,7 +548,9 @@
         android:textSize="24dp"
         android:text="Current Player"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="25dp">
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/white"
+        >
     </TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
