@@ -14,12 +14,16 @@ import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityChoosemapBindin
 import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 
 public class ChooseMapActivity extends AppCompatActivity {
     private ActivityChoosemapBinding binding;
     private ArrayList<Block> buttonList;
     private ButtonAdapter buttonAdapter;
     DAOSQLImpl database = new DAOSQLImpl(this);
+    private ArrayList<String> mapNames = new ArrayList<>();
+
 
 
 
@@ -41,9 +45,28 @@ public class ChooseMapActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        String temp ="";
         buttonList = database.getBlocks();
 
-        buttonAdapter = new ButtonAdapter(buttonList, getApplicationContext());
+        ArrayList<String> hset = new ArrayList<>();
+
+        for(int i=0;i<buttonList.size();i++){
+            if(!buttonList.get(i).getMapName().equals(temp)){
+                hset.add(buttonList.get(i).getMapName());
+                temp = buttonList.get(i).getMapName();
+                Log.i("Recycler View",buttonList.get(i).getMapName());
+            }
+        }
+
+
+        mapNames = hset;
+        for(int i=0;i<mapNames.size();i++){
+            Log.i("Recycler View",mapNames.get(i));
+
+        }
+
+
+        buttonAdapter = new ButtonAdapter(mapNames, getApplicationContext());
 
         binding.rvButtons.setLayoutManager(new GridLayoutManager(getApplicationContext(),5));
         binding.rvButtons.setAdapter(buttonAdapter);

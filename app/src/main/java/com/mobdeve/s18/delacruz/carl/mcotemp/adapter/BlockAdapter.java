@@ -1,6 +1,7 @@
 package com.mobdeve.s18.delacruz.carl.mcotemp.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,13 +61,12 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockViewHol
         }
 
 
-
-
         for(int i = 0; i<playMap.size();i++){
             switch(playMap.get(i).getBlockType()){
 
                 case 1: holder.btn_block.setText("T");
                     connect(playMap,i,holder);
+                    Log.i("Recycler View", "PUMAPASOKKKKKK**********");
                     break;
                 case 2: holder.btn_block.setText("B");
                     connect(playMap,i,holder);
