@@ -20,8 +20,9 @@ public class SetupActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         Intent intent = getIntent();
-        String mapName = intent.getStringExtra("mapName");
+        String mapName1 = intent.getStringExtra("mapName");
         Intent gotoGameplay = new Intent(getApplicationContext(), GameplayActivity.class);
+        binding.tvSetuppageMapname.setText(mapName1);
 
         binding.btnSetuppageBack.setOnClickListener(v -> {
             Intent gotoChoosemap = new Intent(getApplicationContext(), ChooseMapActivity.class);
@@ -52,7 +53,7 @@ public class SetupActivity extends AppCompatActivity {
             ai=0;
         });
         binding.btnSetuppagePlay.setOnClickListener(v -> {
-            intent.putExtra("mapName",mapName);
+            gotoGameplay.putExtra("mapName",mapName1);
             gotoGameplay.putExtra("ai", ai);
             gotoGameplay.putExtra("player", player);
             startActivity(gotoGameplay);
