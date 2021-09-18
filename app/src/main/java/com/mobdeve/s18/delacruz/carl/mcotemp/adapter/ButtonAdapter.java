@@ -2,6 +2,7 @@ package com.mobdeve.s18.delacruz.carl.mcotemp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,7 +69,7 @@ public class ButtonAdapter extends RecyclerView.Adapter<ButtonAdapter.ButtonView
         for(int i=0;i<mapnames.length;i++){
                 holder.btn_choosemap_button.setText(mapnames[i]);
         }
-
+        Log.d("Recycler view",String.valueOf(mapnames.length));
 
 
     }

@@ -52,7 +52,6 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockViewHol
     public void onBindViewHolder(BlockAdapter.BlockViewHolder holder, int position) {
         int max= 30;
 
-        ArrayList<Integer> exclude = new ArrayList<>();
 
         ArrayList<Block> playMap= new ArrayList<>();
 
@@ -60,36 +59,54 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockViewHol
             playMap.add(blockList.get(position));
         }
 
-        int numNormalblocks = max-playMap.size();
-        exclude.add(playMap.get(position).getBlockNum());
 
-        for(int i = 0; i<numNormalblocks;i++){
-            for(int j = 0;j<exclude.size();j++){
-                if(exclude.get(j)!=playMap.get(i).getBlockNum())
-                    playMap.add(new Block());
+
+
+        for(int i = 0; i<playMap.size();i++){
+            switch(playMap.get(i).getBlockType()){
+
+                case 1: holder.btn_block.setText("T");
+                    connect(playMap,i,holder);
+                    break;
+                case 2: holder.btn_block.setText("B");
+                    connect(playMap,i,holder);
+                    break;
+                case 3: holder.btn_block.setText("I");
+                    connect(playMap,i,holder);
+                    break;
+                case 4: holder.btn_block.setText("D");
+                    connect(playMap,i,holder);
+                    break;
+                default: holder.btn_block.setText(String.valueOf(playMap.get(i).getBlockNum()));
             }
+
         }
-
-
-        switch(playMap.get(position).getBlockType()){
-
-            case 1: holder.btn_block.setText("T");
-            break;
-            case 2: holder.btn_block.setText("B");
-            break;
-            case 3: holder.btn_block.setText("I");
-            break;
-            case 4: holder.btn_block.setText("D");
-            break;
-            default: holder.btn_block.setText(playMap.get(position).getBlockNum());
-        }
-
-
 
 
     }
-    public void connect(Block temp){
-        switch (temp.getpBlockNum())
+    public void connect(ArrayList<Block> playMap,int position, BlockViewHolder holder){
+        for(int i =0;i<playMap.size();i++){
+
+            if(playMap.get(position).getpBlockNum()==playMap.get(i).getBlockNum()){
+
+                switch (playMap.get(position).getBlockType()) {
+
+                    case 1: holder.btn_block.setText("T");
+                        break;
+
+                    case 2: holder.btn_block.setText("B");
+                        break;
+
+                    case 3: holder.btn_block.setText("I");
+                        break;
+
+                    case 4: holder.btn_block.setText("D");
+                        break;
+
+                }
+            }
+
+        }
     }
 
     protected class BlockViewHolder extends RecyclerView.ViewHolder {

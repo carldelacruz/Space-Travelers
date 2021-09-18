@@ -41,15 +41,15 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         binding = ActivityGameplayBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
-        blockList = database.getBlocks();
-        blockAdapter = new BlockAdapter(blockList,getApplicationContext());
-        binding.rvDatalist.setLayoutManager(new GridLayoutManager(getApplicationContext(),5));
-        binding.rvDatalist.setAdapter(blockAdapter);
         Intent intent = getIntent();
         mapName = intent.getStringExtra("mapName");
         player = intent.getIntExtra("player",-1);
         ai = intent.getIntExtra("ai",-1);
+        blockList = database.getBlocks();
+        blockAdapter = new BlockAdapter(blockList,getApplicationContext(),mapName);
+        binding.rvDatalist.setLayoutManager(new GridLayoutManager(getApplicationContext(),5));
+        binding.rvDatalist.setAdapter(blockAdapter);
+
 
 
 
