@@ -26,12 +26,13 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
     final int min = 1;
     final int max = 6;
     final int random = new Random().nextInt((max - min) + 1) + min;
-    int x = 1;
+    int turn = 0;
     private ArrayList<Block> blockList;
     DAOSQLImpl database = new DAOSQLImpl(this);
     String mapName;
     int ai;
     int player;
+    Integer[] playerPlaces = {0,0,0,0};
 
 
 
@@ -55,22 +56,60 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
             TextView tvRoll = (TextView)findViewById(R.id.tv_roll_val);
             tvRoll.setText(String.valueOf(random));
             ImageView player = (ImageView)findViewById(R.id.iv_gp_icon);
-            if(x==1){
+            ArrayList<ImageView> imgViewList = new ArrayList<>();
+
+            imgViewList.add(binding.ivGp0);
+            imgViewList.add(binding.ivGp1);
+            imgViewList.add(binding.ivGp2);
+            imgViewList.add(binding.ivGp3);
+            imgViewList.add(binding.ivGp4);
+            imgViewList.add(binding.ivGp5);
+            imgViewList.add(binding.ivGp6);
+            imgViewList.add(binding.ivGp7);
+            imgViewList.add(binding.ivGp8);
+            imgViewList.add(binding.ivGp9);
+            imgViewList.add(binding.ivGp10);
+            imgViewList.add(binding.ivGp11);
+            imgViewList.add(binding.ivGp12);
+            imgViewList.add(binding.ivGp13);
+            imgViewList.add(binding.ivGp14);
+            imgViewList.add(binding.ivGp15);
+            imgViewList.add(binding.ivGp16);
+            imgViewList.add(binding.ivGp17);
+            imgViewList.add(binding.ivGp18);
+            imgViewList.add(binding.ivGp19);
+            imgViewList.add(binding.ivGp20);
+            imgViewList.add(binding.ivGp21);
+            imgViewList.add(binding.ivGp22);
+            imgViewList.add(binding.ivGp23);
+            imgViewList.add(binding.ivGp24);
+            imgViewList.add(binding.ivGp25);
+            imgViewList.add(binding.ivGp26);
+            imgViewList.add(binding.ivGp27);
+            imgViewList.add(binding.ivGp28);
+            imgViewList.add(binding.ivGp29);
+            if(turn==0){
                 player.setImageResource(R.drawable.sample2);
-                x=2;
+                playerPlaces[turn]=random+playerPlaces[turn];
+                turn=1;
             }
-            else if(x==2){
+            else if(turn==1){
                 player.setImageResource(R.drawable.sample3);
-                x=3;
+                playerPlaces[turn]=random+playerPlaces[turn];
+                turn=2;
             }
-            else if(x==3){
+            else if(turn==2){
                 player.setImageResource(R.drawable.sample4);
-                x=4;
+                playerPlaces[turn]=random+playerPlaces[turn];
+
+                turn=3;
             }
-            else if(x==4){
+            else if(turn==3){
                 player.setImageResource(R.drawable.sample1);
-                x=1;
+                playerPlaces[turn]=random+playerPlaces[turn];
+                turn=0;
             }
+
 
 
         });
@@ -209,12 +248,15 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
                     btngp28.setText(setTextb(blockList.get(i)));
                 }
                 if(29==blockList.get(i).getBlockNum()){
-                    btngp0.setText(setTextb(blockList.get(i)));
+                    btngp29.setText(setTextb(blockList.get(i)));
                 }
 
             }
         }
+
+
     }
+
 
     public String setTextb(Block block){
 
