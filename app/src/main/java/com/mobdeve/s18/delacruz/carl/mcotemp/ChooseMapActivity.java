@@ -7,6 +7,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.mobdeve.s18.delacruz.carl.mcotemp.DAO.DAOSQLImpl;
 import com.mobdeve.s18.delacruz.carl.mcotemp.adapter.ButtonAdapter;
@@ -68,8 +69,10 @@ public class ChooseMapActivity extends AppCompatActivity {
 
         buttonAdapter = new ButtonAdapter(mapNames, getApplicationContext());
 
-        binding.rvButtons.setLayoutManager(new GridLayoutManager(getApplicationContext(),5));
+        buttonAdapter.notifyDataSetChanged();
+        binding.rvButtons.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         binding.rvButtons.setAdapter(buttonAdapter);
+
         Log.d("Life Cycle","Start");
     }
 

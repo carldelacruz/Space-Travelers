@@ -30,7 +30,6 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
     int x = 1;
     private ArrayList<Block> blockList;
     DAOSQLImpl database = new DAOSQLImpl(this);
-    private BlockAdapter blockAdapter;
     String mapName;
     int ai;
     int player;
@@ -89,6 +88,7 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         player = intent.getIntExtra("player",-1);
         ai = intent.getIntExtra("ai",-1);
         blockList = database.getBlocks();
+
         Button btngp0 = (Button)findViewById(R.id.btn_gameplay_0);
         Button btngp1 = (Button)findViewById(R.id.btn_gameplay_1);
         Button btngp2 = (Button)findViewById(R.id.btn_gameplay_2);
