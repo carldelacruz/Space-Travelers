@@ -235,7 +235,7 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
             }
 
 
-
+    
 
 
     public String setTextb(Block block){
