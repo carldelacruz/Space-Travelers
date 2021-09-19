@@ -1,26 +1,21 @@
-package com.mobdeve.s18.delacruz.carl.mcotemp;
+package com.mobdeve.s18.group16.delacruz_dizon.space_travelers;
 
 import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextClock;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.mobdeve.s18.delacruz.carl.mcotemp.DAO.DAOSQLImpl;
-import com.mobdeve.s18.delacruz.carl.mcotemp.adapter.BlockAdapter;
-import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityCreatemapBinding;
-import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityGameplayBinding;
-import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.DAO.DAOSQLImpl;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.databinding.ActivityCreatemapBinding;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.databinding.ActivityGameplayBinding;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.model.Block;
 
 import java.util.ArrayList;
 import java.util.List;

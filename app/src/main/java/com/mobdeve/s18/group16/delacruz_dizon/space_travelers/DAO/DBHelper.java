@@ -1,10 +1,8 @@
-package com.mobdeve.s18.delacruz.carl.mcotemp.DAO;
+package com.mobdeve.s18.group16.delacruz_dizon.space_travelers.DAO;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "mapdata.db";

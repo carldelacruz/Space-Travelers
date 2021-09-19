@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.mobdeve.s18.delacruz.carl.mcotemp"
+        applicationId "com.mobdeve.s18.group16.delacruz_dizon.space_travelers"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

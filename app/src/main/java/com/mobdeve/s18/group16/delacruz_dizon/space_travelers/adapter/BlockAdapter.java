@@ -1,4 +1,4 @@
-package com.mobdeve.s18.delacruz.carl.mcotemp.adapter;
+package com.mobdeve.s18.group16.delacruz_dizon.space_travelers.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -6,15 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mobdeve.s18.delacruz.carl.mcotemp.R;
-import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.R;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.model.Block;
 
 import java.util.ArrayList;
 

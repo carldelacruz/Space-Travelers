@@ -1,4 +1,4 @@
-package com.mobdeve.s18.delacruz.carl.mcotemp.model;
+package com.mobdeve.s18.group16.delacruz_dizon.space_travelers.model;
 /*
  * Type: 0 - normal block
  *       1 - teleport

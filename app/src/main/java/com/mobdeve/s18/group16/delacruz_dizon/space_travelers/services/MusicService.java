@@ -1,4 +1,4 @@
-package com.mobdeve.s18.delacruz.carl.mcotemp.services;
+package com.mobdeve.s18.group16.delacruz_dizon.space_travelers.services;
 
 import android.app.Service;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.mobdeve.s18.delacruz.carl.mcotemp.R;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.R;
 
 public class MusicService extends Service {
 

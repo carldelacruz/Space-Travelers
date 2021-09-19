@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mobdeve.s18.delacruz.carl.mcotemp">
+    package="com.mobdeve.s18.group16.delacruz_dizon.space_travelers">
 
     <application
         android:allowBackup="true"

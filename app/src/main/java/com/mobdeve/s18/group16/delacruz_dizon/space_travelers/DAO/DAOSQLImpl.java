@@ -1,4 +1,4 @@
-package com.mobdeve.s18.delacruz.carl.mcotemp.DAO;
+package com.mobdeve.s18.group16.delacruz_dizon.space_travelers.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteException;
 
 import java.util.ArrayList;
 
-import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.model.Block;
 
 public class DAOSQLImpl {
     private SQLiteDatabase database;

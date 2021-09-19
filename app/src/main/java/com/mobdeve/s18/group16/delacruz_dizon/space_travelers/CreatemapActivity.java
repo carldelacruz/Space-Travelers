@@ -1,4 +1,4 @@
-package com.mobdeve.s18.delacruz.carl.mcotemp;
+package com.mobdeve.s18.group16.delacruz_dizon.space_travelers;
 
 import android.app.ActivityManager;
 import android.content.ComponentName;
@@ -17,10 +17,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.mobdeve.s18.delacruz.carl.mcotemp.DAO.DAOSQLImpl;
-import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityCreatemapBinding;
-import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
-import com.mobdeve.s18.delacruz.carl.mcotemp.HomeActivity;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.DAO.DAOSQLImpl;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.databinding.ActivityCreatemapBinding;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.model.Block;
 
 import java.util.ArrayList;
 import java.util.List;

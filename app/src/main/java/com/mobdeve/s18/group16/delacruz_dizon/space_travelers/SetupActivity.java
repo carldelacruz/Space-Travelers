@@ -1,4 +1,4 @@
-package com.mobdeve.s18.delacruz.carl.mcotemp;
+package com.mobdeve.s18.group16.delacruz_dizon.space_travelers;
 
 import android.app.ActivityManager;
 import android.content.ComponentName;
@@ -9,8 +9,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityChoosemapBinding;
-import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivitySetuppageBinding;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.databinding.ActivityChoosemapBinding;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.databinding.ActivitySetuppageBinding;
 
 import java.util.List;
 

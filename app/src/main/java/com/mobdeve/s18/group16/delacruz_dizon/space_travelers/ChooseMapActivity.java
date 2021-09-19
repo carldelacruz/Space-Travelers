@@ -1,4 +1,4 @@
-package com.mobdeve.s18.delacruz.carl.mcotemp;
+package com.mobdeve.s18.group16.delacruz_dizon.space_travelers;
 
 import android.app.ActivityManager;
 import android.content.ComponentName;
@@ -9,17 +9,14 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.mobdeve.s18.delacruz.carl.mcotemp.DAO.DAOSQLImpl;
-import com.mobdeve.s18.delacruz.carl.mcotemp.adapter.ButtonAdapter;
-import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityChoosemapBinding;
-import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.DAO.DAOSQLImpl;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.adapter.ButtonAdapter;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.databinding.ActivityChoosemapBinding;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.model.Block;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 
 public class ChooseMapActivity extends AppCompatActivity {

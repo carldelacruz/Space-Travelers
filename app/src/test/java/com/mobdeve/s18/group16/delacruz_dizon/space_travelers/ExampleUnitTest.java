@@ -1,4 +1,4 @@
-package com.mobdeve.s18.delacruz.carl.mcotemp;
+package com.mobdeve.s18.group16.delacruz_dizon.space_travelers;
 
 import org.junit.Test;
 

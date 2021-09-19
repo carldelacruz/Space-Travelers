@@ -1,4 +1,4 @@
-package com.mobdeve.s18.delacruz.carl.mcotemp;
+package com.mobdeve.s18.group16.delacruz_dizon.space_travelers;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,17 +7,13 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityHomeBinding;
-import com.mobdeve.s18.delacruz.carl.mcotemp.services.MusicService;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.databinding.ActivityHomeBinding;
+import com.mobdeve.s18.group16.delacruz_dizon.space_travelers.services.MusicService;
 
 import java.util.List;
 
