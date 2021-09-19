@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,38 +57,7 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
             TextView tvRoll = (TextView)findViewById(R.id.tv_roll_val);
             tvRoll.setText(String.valueOf(random));
             ImageView player = (ImageView)findViewById(R.id.iv_gp_icon);
-            ArrayList<ImageView> imgViewList = new ArrayList<>();
 
-            imgViewList.add(binding.ivGp0);
-            imgViewList.add(binding.ivGp1);
-            imgViewList.add(binding.ivGp2);
-            imgViewList.add(binding.ivGp3);
-            imgViewList.add(binding.ivGp4);
-            imgViewList.add(binding.ivGp5);
-            imgViewList.add(binding.ivGp6);
-            imgViewList.add(binding.ivGp7);
-            imgViewList.add(binding.ivGp8);
-            imgViewList.add(binding.ivGp9);
-            imgViewList.add(binding.ivGp10);
-            imgViewList.add(binding.ivGp11);
-            imgViewList.add(binding.ivGp12);
-            imgViewList.add(binding.ivGp13);
-            imgViewList.add(binding.ivGp14);
-            imgViewList.add(binding.ivGp15);
-            imgViewList.add(binding.ivGp16);
-            imgViewList.add(binding.ivGp17);
-            imgViewList.add(binding.ivGp18);
-            imgViewList.add(binding.ivGp19);
-            imgViewList.add(binding.ivGp20);
-            imgViewList.add(binding.ivGp21);
-            imgViewList.add(binding.ivGp22);
-            imgViewList.add(binding.ivGp23);
-            imgViewList.add(binding.ivGp24);
-            imgViewList.add(binding.ivGp25);
-            imgViewList.add(binding.ivGp26);
-            imgViewList.add(binding.ivGp27);
-            imgViewList.add(binding.ivGp28);
-            imgViewList.add(binding.ivGp29);
             if(turn==0){
                 player.setImageResource(R.drawable.sample2);
                 playerPlaces[turn]=random+playerPlaces[turn];
@@ -127,41 +97,52 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         ai = intent.getIntExtra("ai",-1);
         blockList = database.getBlocks();
 
-        Button btngp0 = (Button)findViewById(R.id.btn_gameplay_0);
-        Button btngp1 = (Button)findViewById(R.id.btn_gameplay_1);
-        Button btngp2 = (Button)findViewById(R.id.btn_gameplay_2);
-        Button btngp3 = (Button)findViewById(R.id.btn_gameplay_3);
-        Button btngp4 = (Button)findViewById(R.id.btn_gameplay_4);
-        Button btngp5 = (Button)findViewById(R.id.btn_gameplay_5);
-        Button btngp6 = (Button)findViewById(R.id.btn_gameplay_6);
-        Button btngp7 = (Button)findViewById(R.id.btn_gameplay_7);
-        Button btngp8 = (Button)findViewById(R.id.btn_gameplay_8);
-        Button btngp9 = (Button)findViewById(R.id.btn_gameplay_9);
-        Button btngp10 = (Button)findViewById(R.id.btn_gameplay_10);
-        Button btngp11 = (Button)findViewById(R.id.btn_gameplay_11);
-        Button btngp12 = (Button)findViewById(R.id.btn_gameplay_12);
-        Button btngp13 = (Button)findViewById(R.id.btn_gameplay_13);
-        Button btngp14 = (Button)findViewById(R.id.btn_gameplay_14);
-        Button btngp15 = (Button)findViewById(R.id.btn_gameplay_15);
-        Button btngp16 = (Button)findViewById(R.id.btn_gameplay_16);
-        Button btngp17 = (Button)findViewById(R.id.btn_gameplay_17);
-        Button btngp18 = (Button)findViewById(R.id.btn_gameplay_18);
-        Button btngp19 = (Button)findViewById(R.id.btn_gameplay_19);
-        Button btngp20 = (Button)findViewById(R.id.btn_gameplay_20);
-        Button btngp21 = (Button)findViewById(R.id.btn_gameplay_21);
-        Button btngp22 = (Button)findViewById(R.id.btn_gameplay_22);
-        Button btngp23 = (Button)findViewById(R.id.btn_gameplay_23);
-        Button btngp24 = (Button)findViewById(R.id.btn_gameplay_24);
-        Button btngp25 = (Button)findViewById(R.id.btn_gameplay_25);
-        Button btngp26 = (Button)findViewById(R.id.btn_gameplay_26);
-        Button btngp27 = (Button)findViewById(R.id.btn_gameplay_27);
-        Button btngp28 = (Button)findViewById(R.id.btn_gameplay_28);
-        Button btngp29 = (Button)findViewById(R.id.btn_gameplay_29);
+        ArrayList<ImageButton> btngp= new ArrayList<>();
 
-        for(int i=0;i<blockList.size();i++){
+        btngp.add(binding.btnGameplay0);
+        btngp.add(binding.btnGameplay1);
+        btngp.add(binding.btnGameplay2);
+        btngp.add(binding.btnGameplay3);
+        btngp.add(binding.btnGameplay4);
+        btngp.add(binding.btnGameplay5);
+        btngp.add(binding.btnGameplay6);
+        btngp.add(binding.btnGameplay7);
+        btngp.add(binding.btnGameplay8);
+        btngp.add(binding.btnGameplay9);
+        btngp.add(binding.btnGameplay10);
+        btngp.add(binding.btnGameplay11);
+        btngp.add(binding.btnGameplay12);
+        btngp.add(binding.btnGameplay13);
+        btngp.add(binding.btnGameplay14);
+        btngp.add(binding.btnGameplay15);
+        btngp.add(binding.btnGameplay16);
+        btngp.add(binding.btnGameplay17);
+        btngp.add(binding.btnGameplay18);
+        btngp.add(binding.btnGameplay19);
+        btngp.add(binding.btnGameplay20);
+        btngp.add(binding.btnGameplay21);
+        btngp.add(binding.btnGameplay22);
+        btngp.add(binding.btnGameplay23);
+        btngp.add(binding.btnGameplay24);
+        btngp.add(binding.btnGameplay25);
+        btngp.add(binding.btnGameplay26);
+        btngp.add(binding.btnGameplay27);
+        btngp.add(binding.btnGameplay28);
+        btngp.add(binding.btnGameplay29);
+
+
+
+        for(int i=0;i<blockList.size();i++) {
             if(mapName.equals(blockList.get(i).getMapName())){
+                for (int j = 0; j < btngp.size(); j++) {
+                    if(j==blockList.get(i).getBlockNum()){
+                        btngp.get(j).set
+                    }
+                }
+            }
+        }
                 if(0==blockList.get(i).getBlockNum()){
-                    btngp0.setText(setTextb(blockList.get(i)));
+                    .setText(setTextb(blockList.get(i)));
                 }
                 if(1==blockList.get(i).getBlockNum()){
                     btngp1.setText(setTextb(blockList.get(i)));
