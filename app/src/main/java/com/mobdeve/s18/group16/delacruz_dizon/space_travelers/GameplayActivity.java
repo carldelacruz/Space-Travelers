@@ -91,13 +91,13 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         super.onStart();
         Intent intent = getIntent();
         mapName = intent.getStringExtra("mapName");
-        TextView map = (TextView) findViewById(R.id.tv_gameplay_mapname);
+        TextView map = (TextView)findViewById(R.id.tv_gameplay_mapname);
         map.setText(mapName);
-        player = intent.getIntExtra("player", -1);
-        ai = intent.getIntExtra("ai", -1);
+        player = intent.getIntExtra("player",-1);
+        ai = intent.getIntExtra("ai",-1);
         blockList = database.getBlocks();
 
-        ArrayList<ImageButton> btngp = new ArrayList<>();
+        ArrayList<ImageButton> btngp= new ArrayList<>();
 
         btngp.add(binding.btnGameplay0);
         btngp.add(binding.btnGameplay1);
@@ -131,63 +131,157 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         btngp.add(binding.btnGameplay29);
 
 
-        for (int i = 0; i < blockList.size(); i++) {
-            if (mapName.equals(blockList.get(i).getMapName())) {
+
+        for(int i=0;i<blockList.size();i++) {
+            if(mapName.equals(blockList.get(i).getMapName())){
                 for (int j = 0; j < btngp.size(); j++) {
-                    if (j == blockList.get(i).getBlockNum()) {
-                        btngp.get(j).set;
+                    if(j==blockList.get(i).getBlockNum()){
+                        btngp.get(j).set
                     }
                 }
             }
         }
+        if(0==blockList.get(i).getBlockNum()){
+                    .setText(setTextb(blockList.get(i)));
+        }
+        if(1==blockList.get(i).getBlockNum()){
+            btngp1.setText(setTextb(blockList.get(i)));
+        }
+        if(2==blockList.get(i).getBlockNum()){
+            btngp2.setText(setTextb(blockList.get(i)));
+        }
+        if(3==blockList.get(i).getBlockNum()){
+            btngp3.setText(setTextb(blockList.get(i)));
+        }
+        if(4==blockList.get(i).getBlockNum()){
+            btngp4.setText(setTextb(blockList.get(i)));
+        }
+        if(5==blockList.get(i).getBlockNum()){
+            btngp5.setText(setTextb(blockList.get(i)));
+        }
+        if(6==blockList.get(i).getBlockNum()){
+            btngp6.setText(setTextb(blockList.get(i)));
+        }
+        if(7==blockList.get(i).getBlockNum()){
+            btngp7.setText(setTextb(blockList.get(i)));
+        }
+        if(8==blockList.get(i).getBlockNum()){
+            btngp8.setText(setTextb(blockList.get(i)));
+        }
+        if(9==blockList.get(i).getBlockNum()){
+            btngp9.setText(setTextb(blockList.get(i)));
+        }
+        if(10==blockList.get(i).getBlockNum()){
+            btngp10.setText(setTextb(blockList.get(i)));
+        }
+        if(11==blockList.get(i).getBlockNum()){
+            btngp11.setText(setTextb(blockList.get(i)));
+        }
+        if(12==blockList.get(i).getBlockNum()){
+            btngp12.setText(setTextb(blockList.get(i)));
+        }
+        if(13==blockList.get(i).getBlockNum()){
+            btngp13.setText(setTextb(blockList.get(i)));
+        }
+        if(14==blockList.get(i).getBlockNum()){
+            btngp14.setText(setTextb(blockList.get(i)));
+        }
+        if(15==blockList.get(i).getBlockNum()){
+            btngp15.setText(setTextb(blockList.get(i)));
+        }
+        if(16==blockList.get(i).getBlockNum()){
+            btngp16.setText(setTextb(blockList.get(i)));
+        }
+        if(17==blockList.get(i).getBlockNum()){
+            btngp17.setText(setTextb(blockList.get(i)));
+        }
+        if(18==blockList.get(i).getBlockNum()){
+            btngp18.setText(setTextb(blockList.get(i)));
+        }
+        if(19==blockList.get(i).getBlockNum()){
+            btngp19.setText(setTextb(blockList.get(i)));
+        }
+        if(20==blockList.get(i).getBlockNum()){
+            btngp20.setText(setTextb(blockList.get(i)));
+        }
+        if(21==blockList.get(i).getBlockNum()){
+            btngp21.setText(setTextb(blockList.get(i)));
+        }
+        if(22==blockList.get(i).getBlockNum()){
+            btngp22.setText(setTextb(blockList.get(i)));
+        }
+        if(23==blockList.get(i).getBlockNum()){
+            btngp23.setText(setTextb(blockList.get(i)));
+        }
+        if(24==blockList.get(i).getBlockNum()){
+            btngp24.setText(setTextb(blockList.get(i)));
+        }
+        if(25==blockList.get(i).getBlockNum()){
+            btngp25.setText(setTextb(blockList.get(i)));
+        }
+        if(26==blockList.get(i).getBlockNum()){
+            btngp26.setText(setTextb(blockList.get(i)));
+        }
+        if(27==blockList.get(i).getBlockNum()){
+            btngp27.setText(setTextb(blockList.get(i)));
+        }
+        if(28==blockList.get(i).getBlockNum()){
+            btngp28.setText(setTextb(blockList.get(i)));
+        }
+        if(29==blockList.get(i).getBlockNum()){
+            btngp29.setText(setTextb(blockList.get(i)));
+        }
+
     }
 
 
 
-        public String setTextb(Block block){
 
-            switch(block.getBlockType()){
-                case 1: return "T";
-                case 2: return "B";
-                case 3: return "I";
-                case 4: return "D";
-                default:
-                    return String.valueOf(block.getBlockNum());
-            }
 
+    public String setTextb(Block block){
+
+        switch(block.getBlockType()){
+            case 1: return "T";
+            case 2: return "B";
+            case 3: return "I";
+            case 4: return "D";
+            default:
+                return String.valueOf(block.getBlockNum());
         }
 
-
-        @Override
-        public void onClick(View v) {
-
-        }
-
-        @Override
-        protected void onResume() {
-            super.onResume();
-            startService(HomeActivity.musicIntent);
-        }
-
-        @Override
-        public void onPause() {
-            // check if app went to home
-            if (isApplicationSentToBackground(this)){
-                HomeActivity.musicService.pauseMusic();
-            }
-            super.onPause();
-        }
-
-        // checks if application is sent to background
-        public boolean isApplicationSentToBackground(final Context context) {
-            ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-            List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
-            if (!tasks.isEmpty()) {
-                ComponentName topActivity = tasks.get(0).topActivity;
-                if (!topActivity.getPackageName().equals(context.getPackageName())) {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
+
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startService(HomeActivity.musicIntent);
+    }
+
+    @Override
+    public void onPause() {
+        // check if app went to home
+        if (isApplicationSentToBackground(this)){
+            HomeActivity.musicService.pauseMusic();
+        }
+        super.onPause();
+    }
+
+    // checks if application is sent to background
+    public boolean isApplicationSentToBackground(final Context context) {
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
+        if (!tasks.isEmpty()) {
+            ComponentName topActivity = tasks.get(0).topActivity;
+            if (!topActivity.getPackageName().equals(context.getPackageName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
