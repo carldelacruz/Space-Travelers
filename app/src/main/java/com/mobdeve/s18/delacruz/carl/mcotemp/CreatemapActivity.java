@@ -1,5 +1,8 @@
 package com.mobdeve.s18.delacruz.carl.mcotemp;
 
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,8 +20,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.mobdeve.s18.delacruz.carl.mcotemp.DAO.DAOSQLImpl;
 import com.mobdeve.s18.delacruz.carl.mcotemp.databinding.ActivityCreatemapBinding;
 import com.mobdeve.s18.delacruz.carl.mcotemp.model.Block;
+import com.mobdeve.s18.delacruz.carl.mcotemp.HomeActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CreatemapActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityCreatemapBinding binding;
@@ -448,5 +453,33 @@ public class CreatemapActivity extends AppCompatActivity implements View.OnClick
         for(int i = 0; i < buttonsGrid.size(); i++) {
             buttonsGrid.get(i).setOnClickListener(this);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startService(HomeActivity.musicIntent);
+    }
+
+    @Override
+    public void onPause() {
+        // check if app went to home
+        if (isApplicationSentToBackground(this)){
+            HomeActivity.musicService.pauseMusic();
+        }
+        super.onPause();
+    }
+
+    // checks if application is sent to background
+    public boolean isApplicationSentToBackground(final Context context) {
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
+        if (!tasks.isEmpty()) {
+            ComponentName topActivity = tasks.get(0).topActivity;
+            if (!topActivity.getPackageName().equals(context.getPackageName())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -25,8 +25,8 @@ public class HomeActivity extends AppCompatActivity {
     private ActivityHomeBinding binding;
 
     private boolean bound;
-    private MusicService musicService;
-    private Intent musicIntent;
+    public static MusicService musicService;
+    public static Intent musicIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
