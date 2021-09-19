@@ -88,6 +88,7 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
             imgViewList.add(binding.ivGp27);
             imgViewList.add(binding.ivGp28);
             imgViewList.add(binding.ivGp29);
+
             if(turn==0){
                 player.setImageResource(R.drawable.sample2);
                 playerPlaces[turn]=random+playerPlaces[turn];
@@ -268,7 +269,6 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
             default:
                 return String.valueOf(block.getBlockNum());
         }
-
     }
 
 
