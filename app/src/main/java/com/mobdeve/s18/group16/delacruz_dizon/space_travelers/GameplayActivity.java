@@ -33,7 +33,7 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
     String mapName;
     int ai;
     int player;
-    Integer[] playerPlaces = {0,0,0,0};
+    int[] playerPlaces = {0,0,0,0};
 
 
 
@@ -52,37 +52,6 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
             startActivity(gotoHome);
         });
 
-        binding.btnGpRoll.setOnClickListener(v -> {
-            final int random = new Random().nextInt((max - min) + 1) + min;
-            TextView tvRoll = (TextView)findViewById(R.id.tv_roll_val);
-            tvRoll.setText(String.valueOf(random));
-            ImageView player = (ImageView)findViewById(R.id.iv_gp_icon);
-
-            if(turn==0){
-                player.setImageResource(R.drawable.sample2);
-                playerPlaces[turn]=random+playerPlaces[turn];
-                turn=1;
-            }
-            else if(turn==1){
-                player.setImageResource(R.drawable.sample3);
-                playerPlaces[turn]=random+playerPlaces[turn];
-                turn=2;
-            }
-            else if(turn==2){
-                player.setImageResource(R.drawable.sample4);
-                playerPlaces[turn]=random+playerPlaces[turn];
-
-                turn=3;
-            }
-            else if(turn==3){
-                player.setImageResource(R.drawable.sample1);
-                playerPlaces[turn]=random+playerPlaces[turn];
-                turn=0;
-            }
-
-
-
-        });
 
     }
 
@@ -130,108 +99,153 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         btngp.add(binding.btnGameplay28);
         btngp.add(binding.btnGameplay29);
 
-
-
         for(int i=0;i<blockList.size();i++) {
             if(mapName.equals(blockList.get(i).getMapName())){
                 for (int j = 0; j < btngp.size(); j++) {
                     if(j==blockList.get(i).getBlockNum()){
-                        btngp.get(j).set
+                        btngp.get(j).setTag(blockList.get(i).getBlockNum());
+                        if(blockList.get(i).getBlockType()==1){
+                            btngp.get(j).setImageResource(R.drawable.teleporter);
+                        }else if(blockList.get(i).getBlockType()==4){
+                            btngp.get(j).setImageResource(R.drawable.disable);
+                        }
                     }
                 }
             }
         }
-        if(0==blockList.get(i).getBlockNum()){
-                    .setText(setTextb(blockList.get(i)));
-        }
-        if(1==blockList.get(i).getBlockNum()){
-            btngp1.setText(setTextb(blockList.get(i)));
-        }
-        if(2==blockList.get(i).getBlockNum()){
-            btngp2.setText(setTextb(blockList.get(i)));
-        }
-        if(3==blockList.get(i).getBlockNum()){
-            btngp3.setText(setTextb(blockList.get(i)));
-        }
-        if(4==blockList.get(i).getBlockNum()){
-            btngp4.setText(setTextb(blockList.get(i)));
-        }
-        if(5==blockList.get(i).getBlockNum()){
-            btngp5.setText(setTextb(blockList.get(i)));
-        }
-        if(6==blockList.get(i).getBlockNum()){
-            btngp6.setText(setTextb(blockList.get(i)));
-        }
-        if(7==blockList.get(i).getBlockNum()){
-            btngp7.setText(setTextb(blockList.get(i)));
-        }
-        if(8==blockList.get(i).getBlockNum()){
-            btngp8.setText(setTextb(blockList.get(i)));
-        }
-        if(9==blockList.get(i).getBlockNum()){
-            btngp9.setText(setTextb(blockList.get(i)));
-        }
-        if(10==blockList.get(i).getBlockNum()){
-            btngp10.setText(setTextb(blockList.get(i)));
-        }
-        if(11==blockList.get(i).getBlockNum()){
-            btngp11.setText(setTextb(blockList.get(i)));
-        }
-        if(12==blockList.get(i).getBlockNum()){
-            btngp12.setText(setTextb(blockList.get(i)));
-        }
-        if(13==blockList.get(i).getBlockNum()){
-            btngp13.setText(setTextb(blockList.get(i)));
-        }
-        if(14==blockList.get(i).getBlockNum()){
-            btngp14.setText(setTextb(blockList.get(i)));
-        }
-        if(15==blockList.get(i).getBlockNum()){
-            btngp15.setText(setTextb(blockList.get(i)));
-        }
-        if(16==blockList.get(i).getBlockNum()){
-            btngp16.setText(setTextb(blockList.get(i)));
-        }
-        if(17==blockList.get(i).getBlockNum()){
-            btngp17.setText(setTextb(blockList.get(i)));
-        }
-        if(18==blockList.get(i).getBlockNum()){
-            btngp18.setText(setTextb(blockList.get(i)));
-        }
-        if(19==blockList.get(i).getBlockNum()){
-            btngp19.setText(setTextb(blockList.get(i)));
-        }
-        if(20==blockList.get(i).getBlockNum()){
-            btngp20.setText(setTextb(blockList.get(i)));
-        }
-        if(21==blockList.get(i).getBlockNum()){
-            btngp21.setText(setTextb(blockList.get(i)));
-        }
-        if(22==blockList.get(i).getBlockNum()){
-            btngp22.setText(setTextb(blockList.get(i)));
-        }
-        if(23==blockList.get(i).getBlockNum()){
-            btngp23.setText(setTextb(blockList.get(i)));
-        }
-        if(24==blockList.get(i).getBlockNum()){
-            btngp24.setText(setTextb(blockList.get(i)));
-        }
-        if(25==blockList.get(i).getBlockNum()){
-            btngp25.setText(setTextb(blockList.get(i)));
-        }
-        if(26==blockList.get(i).getBlockNum()){
-            btngp26.setText(setTextb(blockList.get(i)));
-        }
-        if(27==blockList.get(i).getBlockNum()){
-            btngp27.setText(setTextb(blockList.get(i)));
-        }
-        if(28==blockList.get(i).getBlockNum()){
-            btngp28.setText(setTextb(blockList.get(i)));
-        }
-        if(29==blockList.get(i).getBlockNum()){
-            btngp29.setText(setTextb(blockList.get(i)));
-        }
+        binding.btnGpRoll.setOnClickListener(v -> {
+            final int random = new Random().nextInt((max - min) + 1) + min;
+            TextView tvRoll = (TextView)findViewById(R.id.tv_roll_val);
+            tvRoll.setText(String.valueOf(random));
+            ImageView player = (ImageView)findViewById(R.id.iv_gp_icon);
 
+            if(turn==0){
+                player.setImageResource(R.drawable.sample2);
+                moveMechanicsb(turn,playerPlaces,btngp);
+                moveMechanicsa(turn,playerPlaces,btngp,blockList,random);
+                turn=1;
+            }
+            else if(turn==1){
+                player.setImageResource(R.drawable.sample3);
+                moveMechanicsb(turn,playerPlaces,btngp);
+                moveMechanicsa(turn,playerPlaces,btngp,blockList,random);
+
+                turn=2;
+            }
+            else if(turn==2){
+                player.setImageResource(R.drawable.sample4);
+                moveMechanicsb(turn,playerPlaces,btngp);
+                moveMechanicsa(turn,playerPlaces,btngp,blockList,random);
+
+                turn=3;
+            }
+            else if(turn==3){
+                player.setImageResource(R.drawable.sample1);
+                moveMechanicsb(turn,playerPlaces,btngp);
+                moveMechanicsa(turn,playerPlaces,btngp,blockList,random);
+
+                turn=0;
+            }
+        });
+
+    }
+    public void moveMechanicsb(int turn, int[] playerPlaces,ArrayList<ImageButton> btngp){
+        switch (turn){
+            case 0: if(playerPlaces[0]==playerPlaces[1]||playerPlaces[0]==playerPlaces[2]||playerPlaces[0]==playerPlaces[3]){ }
+            else{btngp.get(playerPlaces[0]).setImageResource(R.drawable.tile);}
+            break;
+            case 1: if(playerPlaces[1]==playerPlaces[0]||playerPlaces[1]==playerPlaces[2]||playerPlaces[1]==playerPlaces[3]){ }
+            else{btngp.get(playerPlaces[1]).setImageResource(R.drawable.tile);}
+                break;
+            case 2: if(playerPlaces[2]==playerPlaces[0]||playerPlaces[2]==playerPlaces[1]||playerPlaces[2]==playerPlaces[3]){ }
+            else{btngp.get(playerPlaces[2]).setImageResource(R.drawable.tile);}
+                break;
+            case 3: if(playerPlaces[3]==playerPlaces[0]||playerPlaces[3]==playerPlaces[1]||playerPlaces[3]==playerPlaces[2]){ }
+            else{btngp.get(playerPlaces[3]).setImageResource(R.drawable.tile);}
+                break;
+        }
+    }
+    public void moveMechanicsa(int turn, int[] playerPlaces, ArrayList<ImageButton> btngp, ArrayList<Block> blocklist, int random){
+        int x=0;
+        switch (turn){
+            case 0: playerPlaces[turn]=random+playerPlaces[turn];
+                if(playerPlaces[turn]>=29){
+                    playerPlaces[turn]=29;
+                }
+                for(int i=0;i<blocklist.size();i++){
+                    if(btngp.get(playerPlaces[turn]).getTag().equals(blocklist.get(i).getBlockNum())&& blocklist.get(i).getBlockType()==1){
+                        if(playerPlaces[turn]<blocklist.get(i).getpBlockNum()){
+                            playerPlaces[turn]=blocklist.get(i).getpBlockNum();
+                            x=(playerPlaces[turn]-blocklist.get(i).getpBlockNum())+random;
+                        }
+                        else{
+                            x=(blocklist.get(i).getBlockNum());
+                            playerPlaces[turn]=blocklist.get(i).getpBlockNum();
+                        }
+                        btngp.get(x).setImageResource(R.drawable.teleporter);
+                    }
+                    btngp.get(playerPlaces[turn]).setImageResource(R.drawable.sample1);
+                }
+                break;
+            case 1:playerPlaces[turn]=random+playerPlaces[turn];
+                if(playerPlaces[turn]>=29){
+                    playerPlaces[turn]=29;
+                }
+                for(int i=0;i<blocklist.size();i++){
+                    if(btngp.get(playerPlaces[turn]).getTag().equals(blocklist.get(i).getBlockNum())&& blocklist.get(i).getBlockType()==1){
+                        if(playerPlaces[turn]<blocklist.get(i).getpBlockNum()){
+                            playerPlaces[turn]=blocklist.get(i).getpBlockNum();
+                            x=(playerPlaces[turn]-blocklist.get(i).getpBlockNum())+random;
+                        }
+                        else{
+                            x=(blocklist.get(i).getBlockNum());
+                            playerPlaces[turn]=blocklist.get(i).getpBlockNum();
+                        }
+                        btngp.get(x).setImageResource(R.drawable.teleporter);
+                    }
+                    btngp.get(playerPlaces[turn]).setImageResource(R.drawable.sample2);
+                }
+                break;
+            case 2:playerPlaces[turn]=random+playerPlaces[turn];
+                if(playerPlaces[turn]>=29){
+                    playerPlaces[turn]=29;
+                }
+                for(int i=0;i<blocklist.size();i++){
+                    if(btngp.get(playerPlaces[turn]).getTag().equals(blocklist.get(i).getBlockNum())&& blocklist.get(i).getBlockType()==1){
+                        if(playerPlaces[turn]<blocklist.get(i).getpBlockNum()){
+                            playerPlaces[turn]=blocklist.get(i).getpBlockNum();
+                            x=(playerPlaces[turn]-blocklist.get(i).getpBlockNum())+random;
+                        }
+                        else{
+                            x=(blocklist.get(i).getBlockNum());
+                            playerPlaces[turn]=blocklist.get(i).getpBlockNum();
+                        }
+                        btngp.get(x).setImageResource(R.drawable.teleporter);
+                    }
+                    btngp.get(playerPlaces[turn]).setImageResource(R.drawable.sample3);
+                }
+                break;
+            case 3:playerPlaces[turn]=random+playerPlaces[turn];
+                if(playerPlaces[turn]>=29){
+                    playerPlaces[turn]=29;
+                }
+                for(int i=0;i<blocklist.size();i++){
+                    if(btngp.get(playerPlaces[turn]).getTag().equals(blocklist.get(i).getBlockNum())&& blocklist.get(i).getBlockType()==1){
+                        if(playerPlaces[turn]<blocklist.get(i).getpBlockNum()){
+                            playerPlaces[turn]=blocklist.get(i).getpBlockNum();
+                            x=(playerPlaces[turn]-blocklist.get(i).getpBlockNum())+random;
+                        }
+                        else{
+                            x=(blocklist.get(i).getBlockNum());
+                            playerPlaces[turn]=blocklist.get(i).getpBlockNum();
+                        }
+                        btngp.get(x).setImageResource(R.drawable.teleporter);
+                    }
+                    btngp.get(playerPlaces[turn]).setImageResource(R.drawable.sample4);
+                }
+                break;
+
+        }
     }
 
 
