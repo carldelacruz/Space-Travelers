@@ -47,6 +47,10 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(gotoSettings);
         });
 
+        binding.btnHomeExitgame.setOnClickListener(v -> {
+            finish();
+        });
+
         musicIntent = new Intent(this, MusicService.class);
         musicService = new MusicService();
 
